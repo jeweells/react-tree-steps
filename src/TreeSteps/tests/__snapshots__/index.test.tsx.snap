@@ -1,0 +1,2087 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render one component 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "id": "noderoot",
+    },
+    "children": Array [
+      Object {
+        "data": "This is A, Renders: 1, Count: 0",
+        "next": Object {
+          "attribs": Object {},
+          "children": Array [],
+          "name": "br",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "id": "decrement",
+            },
+            "children": Array [
+              Object {
+                "data": "Decrement",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "id": "increment",
+              },
+              "children": Array [
+                Object {
+                  "data": "Increment",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "br",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "id": "previous-node",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Previous node",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "id": "root-node",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Root node",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "id": "next-node",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "Next node",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": Object {
+                        "attribs": Object {
+                          "id": "go-back",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "Go Back",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "button",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": Object {
+                          "attribs": Object {
+                            "id": "go-forward",
+                          },
+                          "children": Array [
+                            Object {
+                              "data": "Go Forward",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "button",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "id": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "id": undefined,
+                          },
+                        },
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "id": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "id": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "id": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "id": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "id": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "id": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "text",
+      },
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "br",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "id": "decrement",
+          },
+          "children": Array [
+            Object {
+              "data": "Decrement",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "id": "increment",
+            },
+            "children": Array [
+              Object {
+                "data": "Increment",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "br",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "id": "previous-node",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Previous node",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "id": "root-node",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Root node",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "id": "next-node",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Next node",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "id": "go-back",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "Go Back",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": Object {
+                        "attribs": Object {
+                          "id": "go-forward",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "Go Forward",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "button",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "id": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "id": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "id": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "id": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "id": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "id": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "data": "This is A, Renders: 1, Count: 0",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "text",
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {},
+        "x-attribsPrefix": Object {},
+      },
+      Object {
+        "attribs": Object {
+          "id": "decrement",
+        },
+        "children": Array [
+          Object {
+            "data": "Decrement",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "button",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "id": "increment",
+          },
+          "children": Array [
+            Object {
+              "data": "Increment",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {},
+            "children": Array [],
+            "name": "br",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "id": "previous-node",
+              },
+              "children": Array [
+                Object {
+                  "data": "Previous node",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "id": "root-node",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Root node",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "id": "next-node",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Next node",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "id": "go-back",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Go Back",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "id": "go-forward",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "Go Forward",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "id": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "id": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "id": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "id": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {},
+          "children": Array [],
+          "name": "br",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "data": "This is A, Renders: 1, Count: 0",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "id": "increment",
+        },
+        "children": Array [
+          Object {
+            "data": "Increment",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "button",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {},
+          "children": Array [],
+          "name": "br",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "id": "previous-node",
+            },
+            "children": Array [
+              Object {
+                "data": "Previous node",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "id": "root-node",
+              },
+              "children": Array [
+                Object {
+                  "data": "Root node",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "id": "next-node",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Next node",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "id": "go-back",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Go Back",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "id": "go-forward",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Go Forward",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "id": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "id": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "id": "decrement",
+          },
+          "children": Array [
+            Object {
+              "data": "Decrement",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {},
+            "children": Array [],
+            "name": "br",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Object {
+              "data": "This is A, Renders: 1, Count: 0",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "br",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "id": "previous-node",
+          },
+          "children": Array [
+            Object {
+              "data": "Previous node",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "id": "root-node",
+            },
+            "children": Array [
+              Object {
+                "data": "Root node",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "id": "next-node",
+              },
+              "children": Array [
+                Object {
+                  "data": "Next node",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "id": "go-back",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Go Back",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "id": "go-forward",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Go Forward",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "id": "increment",
+          },
+          "children": Array [
+            Object {
+              "data": "Increment",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {
+              "id": "decrement",
+            },
+            "children": Array [
+              Object {
+                "data": "Decrement",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "br",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "data": "This is A, Renders: 1, Count: 0",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {},
+        "x-attribsPrefix": Object {},
+      },
+      Object {
+        "attribs": Object {
+          "id": "previous-node",
+        },
+        "children": Array [
+          Object {
+            "data": "Previous node",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "button",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "id": "root-node",
+          },
+          "children": Array [
+            Object {
+              "data": "Root node",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "id": "next-node",
+            },
+            "children": Array [
+              Object {
+                "data": "Next node",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "id": "go-back",
+              },
+              "children": Array [
+                Object {
+                  "data": "Go Back",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "id": "go-forward",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Go Forward",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {},
+          "children": Array [],
+          "name": "br",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {
+              "id": "increment",
+            },
+            "children": Array [
+              Object {
+                "data": "Increment",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "id": "decrement",
+              },
+              "children": Array [
+                Object {
+                  "data": "Decrement",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "br",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "data": "This is A, Renders: 1, Count: 0",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "id": "root-node",
+        },
+        "children": Array [
+          Object {
+            "data": "Root node",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "button",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "id": "next-node",
+          },
+          "children": Array [
+            Object {
+              "data": "Next node",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "id": "go-back",
+            },
+            "children": Array [
+              Object {
+                "data": "Go Back",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "id": "go-forward",
+              },
+              "children": Array [
+                Object {
+                  "data": "Go Forward",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "id": "previous-node",
+          },
+          "children": Array [
+            Object {
+              "data": "Previous node",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {},
+            "children": Array [],
+            "name": "br",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "id": "increment",
+              },
+              "children": Array [
+                Object {
+                  "data": "Increment",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "id": "decrement",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Decrement",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {},
+                  "children": Array [],
+                  "name": "br",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": Object {
+                    "data": "This is A, Renders: 1, Count: 0",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {},
+                  "x-attribsPrefix": Object {},
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "id": "next-node",
+        },
+        "children": Array [
+          Object {
+            "data": "Next node",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "button",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "id": "go-back",
+          },
+          "children": Array [
+            Object {
+              "data": "Go Back",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "id": "go-forward",
+            },
+            "children": Array [
+              Object {
+                "data": "Go Forward",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "id": "root-node",
+          },
+          "children": Array [
+            Object {
+              "data": "Root node",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {
+              "id": "previous-node",
+            },
+            "children": Array [
+              Object {
+                "data": "Previous node",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "br",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "id": "increment",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Increment",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "id": "decrement",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Decrement",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {},
+                    "children": Array [],
+                    "name": "br",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": Object {
+                      "data": "This is A, Renders: 1, Count: 0",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "id": "go-back",
+        },
+        "children": Array [
+          Object {
+            "data": "Go Back",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "button",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "id": "go-forward",
+          },
+          "children": Array [
+            Object {
+              "data": "Go Forward",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "id": "next-node",
+          },
+          "children": Array [
+            Object {
+              "data": "Next node",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {
+              "id": "root-node",
+            },
+            "children": Array [
+              Object {
+                "data": "Root node",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "id": "previous-node",
+              },
+              "children": Array [
+                Object {
+                  "data": "Previous node",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "br",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "id": "increment",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Increment",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "id": "decrement",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Decrement",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {},
+                      "children": Array [],
+                      "name": "br",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": Object {
+                        "data": "This is A, Renders: 1, Count: 0",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "id": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "id": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "id": "go-forward",
+        },
+        "children": Array [
+          Object {
+            "data": "Go Forward",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "button",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "id": "go-back",
+          },
+          "children": Array [
+            Object {
+              "data": "Go Back",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {
+              "id": "next-node",
+            },
+            "children": Array [
+              Object {
+                "data": "Next node",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "id": "root-node",
+              },
+              "children": Array [
+                Object {
+                  "data": "Root node",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "id": "previous-node",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Previous node",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {},
+                  "children": Array [],
+                  "name": "br",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "id": "increment",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Increment",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "id": "decrement",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "Decrement",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": Object {
+                        "attribs": Object {},
+                        "children": Array [],
+                        "name": "br",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": Object {
+                          "data": "This is A, Renders: 1, Count: 0",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "id": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "id": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "id": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "id": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {},
+                  "x-attribsPrefix": Object {},
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "id": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "id": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
