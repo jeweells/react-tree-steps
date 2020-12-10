@@ -5,8 +5,8 @@ import {act} from "react-dom/test-utils";
 import {Router, useHistory} from "react-router-dom";
 import {TreeSteps} from "../index";
 import {createMemoryHistory} from "history";
-import {TreeNodeComponentProps, TreeNodeInfo} from "../types";
-import {basicSetup, cmp, idata} from "./utils";
+import {NextNodeOptions, TreeNodeComponentProps, TreeNodeInfo} from "../types";
+import {_buildRoot, basicSetup, basicSetup2Branches, cmp, idata} from "./utils";
 
 
 
@@ -114,6 +114,7 @@ describe("Testing direct access option", () => {
         expect(text).toContain(texts[cmpIds[0]]);
         expect(history.location.pathname).toBe("/");
     });
+
     it("Accessing an allowed node should render it", () => {
         const {texts, cmpIds, root, history} = basicSetup();
         history.push("/" + cmpIds[1]);
@@ -128,6 +129,265 @@ describe("Testing direct access option", () => {
         const text = tree.text();
         expect(history.location.pathname).toBe("/" + cmpIds[1]);
         expect(text).toContain(texts[cmpIds[1]]);
+    });
+
+});
+
+
+
+describe("Testing next node options", () => {
+    const ids = ["A", "B", "C", "D", "E"];
+    const performWithOptions = (options: NextNodeOptions) => {
+        const {texts, cmpIds, root, history} = basicSetup(ids);
+        root.component = cmp(texts[cmpIds[0]], options);
+
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} initialData={idata}/>
+            </Router>,
+        );
+        tree.find("#next-node").simulate('click');
+        const text = tree.text();
+        return {
+            texts, cmpIds, root, history,
+            text,
+        }
+    };
+
+    it("Next node with deep 2", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                deep: 2
+            }
+        });
+        expect(text).toContain(texts[cmpIds[2]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[2]);
+    });
+
+
+    it("Next node with invalid deep (should not change)", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                deep: 100
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[0]]);
+        expect(history.location.pathname).toBe("/");
+    });
+
+    it("Next node with name", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                deep: 5 - 1,
+                child: "E"
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[cmpIds.length - 1]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[cmpIds.length - 1]);
+    });
+
+
+    it("Next node with invalid name (should not change)", () => {
+        // Deep will be 1, you cannot write a name for all children nodes, the behaviour will be undetermined
+        // since it's not verified two nodes won't have the same name
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                child: "E"
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[0]]);
+        expect(history.location.pathname).toBe("/");
+    });
+
+
+    it("Next 3rd node with full name path", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                path: ids.slice(1, 4)
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[3]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[3]);
+    });
+
+    it("Next 3rd node with mixed path", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                path: [0, ids[2], 0]
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[3]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[3]);
+    });
+
+
+    it("Next 3rd node with number path", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                path: [0, 0, 0]
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[3]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[3]);
+    });
+
+
+    it("Next node with deep 1", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                deep: 1
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[1]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[1]);
+    });
+
+    it("Next node with child 0", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                child: 0
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[1]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[1]);
+    });
+
+    it("Next node with named child", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                child: ids[1]
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[1]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[1]);
+    });
+
+    it("Next node with full named path", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                path: [ids[1]]
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[1]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[1]);
+    });
+
+    it("Next node with number path", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            selector: {
+                path: [0]
+            }
+        });
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[1]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[1]);
+    });
+
+
+    it("Next nodes with 2 branches and full named path", () => {
+        const {texts, cmpIds, root, history, sndIds, sndTexts} = basicSetup2Branches(ids);
+
+        root.component = cmp(texts[cmpIds[0]], {
+            selector: {
+                path: [
+                    cmpIds[1],
+                    ...sndIds.slice(0, 2),
+                ]
+            }
+        });
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} initialData={idata}/>
+            </Router>,
+        );
+        tree.find("#next-node").simulate('click');
+        const text = tree.text();
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(sndTexts[sndIds[1]]);
+        expect(history.location.pathname).toBe("/" + sndIds[1]);
+    });
+
+    it("Next nodes with 2 branches and full number path", () => {
+        const {texts, cmpIds, root, history, sndIds, sndTexts} = basicSetup2Branches(ids);
+
+        root.component = cmp(texts[cmpIds[0]], {
+            selector: {
+                path: [
+                    0,
+                    1,
+                    0,
+                ]
+            }
+        });
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} initialData={idata}/>
+            </Router>,
+        );
+        tree.find("#next-node").simulate('click');
+        const text = tree.text();
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(sndTexts[sndIds[1]]);
+        expect(history.location.pathname).toBe("/" + sndIds[1]);
+    });
+
+
+    it("Next nodes with 2 branches and mixed path", () => {
+        const {texts, cmpIds, root, history, sndIds, sndTexts} = basicSetup2Branches(ids);
+
+        root.component = cmp(texts[cmpIds[0]], {
+            selector: {
+                path: [
+                    0,
+                    sndIds[0],
+                    0,
+                ]
+            }
+        });
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} initialData={idata}/>
+            </Router>,
+        );
+        tree.find("#next-node").simulate('click');
+        const text = tree.text();
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(sndTexts[sndIds[1]]);
+        expect(history.location.pathname).toBe("/" + sndIds[1]);
+    });
+
+    it("Next nodes with 2 branches with invalid path", () => {
+        const {texts, cmpIds, root, history, sndIds} = basicSetup2Branches(ids);
+
+        root.component = cmp(texts[cmpIds[0]], {
+            selector: {
+                path: [
+                    0,
+                    "asdasdsad",
+                    0,
+                ]
+            }
+        });
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} initialData={idata}/>
+            </Router>,
+        );
+        tree.find("#next-node").simulate('click');
+        const text = tree.text();
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[0]]);
+        expect(history.location.pathname).toBe("/" );
     });
 
 });

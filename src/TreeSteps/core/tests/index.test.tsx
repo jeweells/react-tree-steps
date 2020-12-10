@@ -206,6 +206,119 @@ describe('Finding next nodes using options', function () {
         expect(node).toBeFalsy();
     });
 
+
+    it("Finding next node using full name path", () => {
+        const rootNode = buildSimpleCompactNodes(5);
+        const anotherChild = buildSimpleCompactNodes(3, 0, "x");
+        if(anotherChild) {
+            rootNode?.children[0].children.push(anotherChild);
+        }
+        const node = findNextNode(rootNode, {
+            selector: {
+                path: [
+                    rootNode?.children[0].name as string,
+                    anotherChild?.name as string,
+                    anotherChild?.children[0].name as string,
+                    anotherChild?.children[0].children[0].name as string,
+                ],
+            }
+        });
+        expect(node).toBe(anotherChild?.children[0].children[0]);
+    });
+
+    it("Finding next node using mixed path (name and number)", () => {
+        const rootNode = buildSimpleCompactNodes(5);
+        const anotherChild = buildSimpleCompactNodes(3, 0, "x");
+        if(anotherChild) {
+            rootNode?.children[0].children.push(anotherChild);
+        }
+        const node = findNextNode(rootNode, {
+            selector: {
+                path: [
+                    rootNode?.children[0].name as string,
+                    1,
+                    anotherChild?.children[0].name as string,
+                    0,
+                ],
+            }
+        });
+        expect(node).toBe(anotherChild?.children[0].children[0]);
+    });
+
+    it("Finding next node using number path", () => {
+        const rootNode = buildSimpleCompactNodes(5);
+        const anotherChild = buildSimpleCompactNodes(3, 0, "x");
+        if(anotherChild) {
+            rootNode?.children[0].children.push(anotherChild);
+        }
+        const node = findNextNode(rootNode, {
+            selector: {
+                path: [
+                    0,
+                    1,
+                    0,
+                    0,
+                ],
+            }
+        });
+        expect(node).toBe(anotherChild?.children[0].children[0]);
+    });
+
+
+    it("Finding next node using invalid full name path", () => {
+        const rootNode = buildSimpleCompactNodes(5);
+        const anotherChild = buildSimpleCompactNodes(3, 0, "x");
+        if(anotherChild) {
+            rootNode?.children[0].children.push(anotherChild);
+        }
+        const node = findNextNode(rootNode, {
+            selector: {
+                path: [
+                    rootNode?.children[0].name as string,
+                    anotherChild?.name as string,
+                    "asodjasodj",
+                    anotherChild?.children[0].children[0].name as string,
+                ],
+            }
+        });
+        expect(node).toBeFalsy();
+        const node2 = findNextNode(rootNode, {
+            selector: {
+                path: [
+                    "asodjasodj",
+                ],
+            }
+        });
+        expect(node2).toBeFalsy();
+    });
+
+    it("Finding next node using invalid full number path", () => {
+        const rootNode = buildSimpleCompactNodes(5);
+        const anotherChild = buildSimpleCompactNodes(3, 0, "x");
+        if(anotherChild) {
+            rootNode?.children[0].children.push(anotherChild);
+        }
+        const node = findNextNode(rootNode, {
+            selector: {
+                path: [
+                    0,
+                    1,
+                    2,
+                    3,
+                ],
+            }
+        });
+        expect(node).toBeFalsy();
+        const node2 = findNextNode(rootNode, {
+            selector: {
+                path: [
+                    10,
+                ],
+            }
+        });
+        expect(node2).toBeFalsy();
+    });
+
 });
 
 

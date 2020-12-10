@@ -2,11 +2,11 @@ import React from "react";
 import {RouteProps} from "react-router-dom";
 
 export interface TreeNodeComponentProps<T extends object> {
-    nextNode(): void;
+    nextNode: ITreeContext['nextNode'];
 
-    rootNode(): void;
+    rootNode: ITreeContext['rootNode'];
 
-    previousNode(): void;
+    previousNode: ITreeContext['previousNode'];
 }
 
 export interface NodeOptions<T extends object> {
