@@ -82,6 +82,24 @@ export const basicSetup = (ids = ["A", "B", "C"], onCmp?: (id: string, text: str
     }
 };
 
+export const basicSetupTunnelNode =(ids = ["A", "B", "C"]) => {
+    const {texts, cmpIds, root, history, cmps}  = basicSetup(ids);
+    const sndChild = root?.children && root?.children[cmpIds[1]];
+    if(sndChild) {
+        sndChild.options = {
+            ignoreAccessOfNextNode: true,
+        };
+        delete sndChild.routeProps;
+    }
+    return {
+        texts,
+        cmpIds,
+        root,
+        history,
+        cmps
+    }
+};
+
 export const basicSetup2Branches = (ids = ["A", "B", "C"], _2ids = ['xAx', 'xBx', 'xCx']) => {
 
     const {texts, cmpIds, root, history, cmps} = basicSetup(ids);

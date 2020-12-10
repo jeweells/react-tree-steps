@@ -6,7 +6,7 @@ import {Router, useHistory} from "react-router-dom";
 import {TreeSteps} from "../index";
 import {createMemoryHistory} from "history";
 import {NextNodeOptions, PreviousNodeOptions, TreeNodeComponentProps, TreeNodeInfo} from "../types";
-import {_buildRoot, basicSetup, basicSetup2Branches, cmp, idata} from "./utils";
+import {_buildRoot, basicSetup, basicSetup2Branches, basicSetupTunnelNode, cmp, idata} from "./utils";
 
 
 
@@ -154,147 +154,197 @@ describe("Testing next node options", () => {
         }
     };
 
-    it("Next node with deep 2", () => {
+    const nextNodeWithDeep2 = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                deep: 2
-            }
+                deep: 2,
+            },
+            useReplace,
         });
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toContain(texts[cmpIds[2]]);
         expect(history.location.pathname).toBe("/" + cmpIds[2]);
-    });
+    };
 
+    it("Next node with deep 2", () => nextNodeWithDeep2());
+    it("Next node with deep 2 and useReplace", () => nextNodeWithDeep2(true));
 
-    it("Next node with invalid deep (should not change)", () => {
+    const nextNodeWithInvalidDeep = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 deep: 100
-            }
+            },
+            useReplace,
         });
+        expect(history.entries.length).toBe(1);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[0]]);
         expect(history.location.pathname).toBe("/");
-    });
+    };
 
-    it("Next node with name", () => {
+    it("Next node with invalid deep (should not change)", () => nextNodeWithInvalidDeep());
+    it("Next node with invalid deep and useReplace (should not change)", () => nextNodeWithInvalidDeep(true));
+
+    const nextNodeWithName = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                deep: 5 - 1,
+                deep: ids.length - 1,
                 child: "E"
-            }
+            },
+            useReplace,
         });
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[cmpIds.length - 1]]);
         expect(history.location.pathname).toBe("/" + cmpIds[cmpIds.length - 1]);
-    });
+    };
 
+    it("Next node with name", () => nextNodeWithName());
+    it("Next node with name and useReplace", () => nextNodeWithName(true));
 
-    it("Next node with invalid name (should not change)", () => {
+    const nextNodeWithInvalidName = (useReplace?: boolean) => {
         // Deep will be 1, you cannot write a name for all children nodes, the behaviour will be undetermined
         // since it's not verified two nodes won't have the same name
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 child: "E"
-            }
+            },
+            useReplace
         });
+        expect(history.entries.length).toBe(1);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[0]]);
         expect(history.location.pathname).toBe("/");
-    });
+    };
+    it("Next node with invalid name (should not change)", () => nextNodeWithInvalidName());
+    it("Next node with invalid name and useReplace (should not change)",
+        () => nextNodeWithInvalidName(true));
 
-
-    it("Next 3rd node with full name path", () => {
+    const next3rdNodeWithFullNamePath = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 path: ids.slice(1, 4)
-            }
+            },
+            useReplace,
         });
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[3]]);
         expect(history.location.pathname).toBe("/" + cmpIds[3]);
-    });
+    };
 
-    it("Next 3rd node with mixed path", () => {
+    it("Next 3rd node with full name path", () => next3rdNodeWithFullNamePath());
+    it("Next 3rd node with full name path and useReplace", () => next3rdNodeWithFullNamePath(true));
+
+    const next3rdNodeWithMixedPath = (useReplace?: boolean) =>  {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 path: [0, ids[2], 0]
-            }
+            },
+            useReplace
         });
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[3]]);
         expect(history.location.pathname).toBe("/" + cmpIds[3]);
-    });
+    };
 
+    it("Next 3rd node with mixed path", () => next3rdNodeWithMixedPath());
+    it("Next 3rd node with mixed path", () => next3rdNodeWithMixedPath(true));
 
-    it("Next 3rd node with number path", () => {
+    const next3rdNodeWithNumberPath = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 path: [0, 0, 0]
-            }
+            },
+            useReplace
         });
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[3]]);
         expect(history.location.pathname).toBe("/" + cmpIds[3]);
-    });
+    };
+    it("Next 3rd node with number path", () => next3rdNodeWithNumberPath());
+    it("Next 3rd node with number path and useReplace", () => next3rdNodeWithNumberPath(true));
 
-
-    it("Next node with deep 1", () => {
+    const nextNodeWithDeep1 = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 deep: 1
-            }
+            },
+            useReplace
         });
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[1]]);
         expect(history.location.pathname).toBe("/" + cmpIds[1]);
-    });
+    };
 
-    it("Next node with child 0", () => {
+    it("Next node with deep 1", () => nextNodeWithDeep1());
+    it("Next node with deep 1 and useReplace", () => nextNodeWithDeep1(true));
+
+    const nextNodeWithChild0 = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 child: 0
-            }
+            },
+            useReplace
         });
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[1]]);
         expect(history.location.pathname).toBe("/" + cmpIds[1]);
-    });
-
-    it("Next node with named child", () => {
+    };
+    it("Next node with child 0", () => nextNodeWithChild0());
+    it("Next node with child 0 and useReplace", () => nextNodeWithChild0(true));
+    const nextNodeWithNamedChild = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 child: ids[1]
-            }
+            },
+            useReplace
         });
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[1]]);
         expect(history.location.pathname).toBe("/" + cmpIds[1]);
-    });
+    };
+    it("Next node with named child", () => nextNodeWithNamedChild());
+    it("Next node with named child and useReplace", () => nextNodeWithNamedChild(true));
 
-    it("Next node with full named path", () => {
+    const nextNodeWithFullNamedPath = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 path: [ids[1]]
-            }
+            },
+            useReplace,
         });
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[1]]);
         expect(history.location.pathname).toBe("/" + cmpIds[1]);
-    });
+    };
 
-    it("Next node with number path", () => {
+    it("Next node with full named path", () => nextNodeWithFullNamedPath());
+    it("Next node with full named path and useReplace", () => nextNodeWithFullNamedPath(true));
+
+    const nextNodeWithNumberPath = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 path: [0]
-            }
+            },
+            useReplace,
         });
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[1]]);
         expect(history.location.pathname).toBe("/" + cmpIds[1]);
-    });
+    };
 
+    it("Next node with number path", () => nextNodeWithNumberPath());
+    it("Next node with number path and useReplace", () => nextNodeWithNumberPath(true));
 
-    it("Next nodes with 2 branches and full named path", () => {
+    const nextNodesWith2BranchesAndFullNamedPath = (useReplace?: boolean) => {
         const {texts, cmpIds, root, history, sndIds, sndTexts} = basicSetup2Branches(ids);
 
         root.component = cmp(texts[cmpIds[0]], {
@@ -303,7 +353,8 @@ describe("Testing next node options", () => {
                     cmpIds[1],
                     ...sndIds.slice(0, 2),
                 ]
-            }
+            },
+            useReplace,
         });
         const tree = mount(
             <Router history={history}>
@@ -312,12 +363,15 @@ describe("Testing next node options", () => {
         );
         tree.find("#next-node").simulate('click');
         const text = tree.text();
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(sndTexts[sndIds[1]]);
         expect(history.location.pathname).toBe("/" + sndIds[1]);
-    });
-
-    it("Next nodes with 2 branches and full number path", () => {
+    };
+    it("Next nodes with 2 branches and full named path", () => nextNodesWith2BranchesAndFullNamedPath());
+    it("Next nodes with 2 branches and full named path and useReplace",
+        () => nextNodesWith2BranchesAndFullNamedPath(true));
+    const nextNodesWith2BranchesAndFullNumberPath = (useReplace?: boolean) => {
         const {texts, cmpIds, root, history, sndIds, sndTexts} = basicSetup2Branches(ids);
 
         root.component = cmp(texts[cmpIds[0]], {
@@ -327,7 +381,8 @@ describe("Testing next node options", () => {
                     1,
                     0,
                 ]
-            }
+            },
+            useReplace
         });
         const tree = mount(
             <Router history={history}>
@@ -336,13 +391,16 @@ describe("Testing next node options", () => {
         );
         tree.find("#next-node").simulate('click');
         const text = tree.text();
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(sndTexts[sndIds[1]]);
         expect(history.location.pathname).toBe("/" + sndIds[1]);
-    });
+    };
+    it("Next nodes with 2 branches and full number path", () => nextNodesWith2BranchesAndFullNumberPath());
+    it("Next nodes with 2 branches and full number path and useReplace",
+        () => nextNodesWith2BranchesAndFullNumberPath(true));
 
-
-    it("Next nodes with 2 branches and mixed path", () => {
+    const nextNodesWith2BranchesAndMixedPath = (useReplace?: boolean) => {
         const {texts, cmpIds, root, history, sndIds, sndTexts} = basicSetup2Branches(ids);
 
         root.component = cmp(texts[cmpIds[0]], {
@@ -352,7 +410,8 @@ describe("Testing next node options", () => {
                     sndIds[0],
                     0,
                 ]
-            }
+            },
+            useReplace
         });
         const tree = mount(
             <Router history={history}>
@@ -361,12 +420,16 @@ describe("Testing next node options", () => {
         );
         tree.find("#next-node").simulate('click');
         const text = tree.text();
+        expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(sndTexts[sndIds[1]]);
         expect(history.location.pathname).toBe("/" + sndIds[1]);
-    });
+    };
+    it("Next nodes with 2 branches and mixed path", () => nextNodesWith2BranchesAndMixedPath());
+    it("Next nodes with 2 branches and mixed path and useReplace",
+        () => nextNodesWith2BranchesAndMixedPath(true));
 
-    it("Next nodes with 2 branches with invalid path", () => {
+    const nextNodesWith2BranchesWithInvalidPath = (useReplace?: boolean) => {
         const {texts, cmpIds, root, history, sndIds} = basicSetup2Branches(ids);
 
         root.component = cmp(texts[cmpIds[0]], {
@@ -376,7 +439,8 @@ describe("Testing next node options", () => {
                     "asdasdsad",
                     0,
                 ]
-            }
+            },
+            useReplace,
         });
         const tree = mount(
             <Router history={history}>
@@ -385,10 +449,14 @@ describe("Testing next node options", () => {
         );
         tree.find("#next-node").simulate('click');
         const text = tree.text();
+        expect(history.entries.length).toBe( 1);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[0]]);
         expect(history.location.pathname).toBe("/" );
-    });
+    };
+    it("Next nodes with 2 branches with invalid path", () => nextNodesWith2BranchesWithInvalidPath());
+    it("Next nodes with 2 branches with invalid path and useReplace",
+        () => nextNodesWith2BranchesWithInvalidPath(true));
 
 });
 
@@ -423,19 +491,96 @@ describe("Testing previous node options", () => {
         }
     };
 
-    it("Previous node with parent 2", () => {
+    const previousNodeWithParent2 = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
-            parent: 2
+            parent: 2,
+            useReplace,
         });
+        expect(history.entries.length).toBe(useReplace ? 2 : 3);
         expect(text).toContain(texts[cmpIds[cmpIds.length - 3]]);
         expect(history.location.pathname).toBe("/" + cmpIds[cmpIds.length - 3]);
+    };
+
+    it("Previous node with parent 2", () => previousNodeWithParent2());
+    it("Previous node with parent 2", () => previousNodeWithParent2(true));
+
+    const previousNodeWithNamedParent = (useReplace?: boolean) => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            parent: ids[ids.length - 3],
+            useReplace
+        });
+        expect(history.entries.length).toBe(useReplace ? 2 : 3);
+        expect(text).toContain(texts[cmpIds[cmpIds.length - 3]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[cmpIds.length - 3]);
+    };
+
+    it("Previous node with named parent", () => previousNodeWithNamedParent());
+    it("Previous node with named parent and useReplace", () => previousNodeWithNamedParent(true));
+});
+
+
+describe("Testing tunnel nodes", () => {
+    const ids = ["A", "B", "C"];
+    const perform = () => {
+        const {root, cmps, texts, cmpIds, history} = basicSetupTunnelNode(ids);
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} initialData={idata}/>
+            </Router>,
+        );
+
+        tree.find("#next-node").simulate('click');
+        return {
+            root, cmps, texts, cmpIds, history,
+            tree,
+            text: tree.text(),
+        }
+    };
+    it("Going next node should not update history", () => {
+        const {history, texts, text, cmpIds} = perform();
+        expect(history.entries.length).toBe(1);
+        expect(history.location.pathname).toBe("/");
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[1]]);
     });
 
-    it("Previous node with named parent", () => {
-        const {text, history, cmpIds, texts} = performWithOptions({
-            parent: ids[ids.length - 3]
-        });
-        expect(text).toContain(texts[cmpIds[cmpIds.length - 3]]);
-        expect(history.location.pathname).toBe("/" + cmpIds[cmpIds.length - 3]);
+    it("Updating node's content should keep the same node mounted", () => {
+        const {history, texts, cmpIds, tree} = perform();
+        tree.find("#increment").simulate('click');
+        tree.find("#increment").simulate('click');
+        const text = tree.text();
+        expect(history.location.pathname).toBe("/");
+        expect(text).toMatch(/Renders: 3/);
+        expect(text).toContain(texts[cmpIds[1]]);
     });
+
+    it("Going next node of the previous node should work", () => {
+        const {history, texts, cmpIds, tree} = perform();
+        tree.find("#next-node").simulate('click');
+        const text = tree.text();
+        expect(history.location.pathname).toBe("/" + cmpIds[2]);
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[2]]);
+    });
+
+    it("Going previous node of the tunnel node should work", () => {
+        const {history, texts, cmpIds, tree} = perform();
+        tree.find("#previous-node").simulate('click');
+        const text = tree.text();
+        expect(history.location.pathname).toBe("/");
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[0]]);
+    });
+
+
+    it("Trying accessing a tunnel node from the next node should skip the tunnel node", () => {
+        const {history, texts, cmpIds, tree} = perform();
+        tree.find("#next-node").simulate('click');
+        tree.find("#previous-node").simulate('click');
+        const text = tree.text();
+        expect(history.location.pathname).toBe("/");
+        expect(text).toMatch(/Renders: 1/);
+        expect(text).toContain(texts[cmpIds[0]]);
+    });
+
 });
