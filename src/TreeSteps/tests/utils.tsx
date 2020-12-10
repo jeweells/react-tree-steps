@@ -53,7 +53,7 @@ export const _buildRoot = (cmps: { [k: string]: ReturnType<typeof cmp> }, cmpIds
 };
 
 
-export const basicSetup = (ids = ["A", "B", "C"]) => {
+export const basicSetup = (ids = ["A", "B", "C"], onCmp?: (id: string, text: string) => ReturnType<typeof cmp> | void) => {
     const cmpIds = ids;
     const texts: { [k: string]: string } = {};
     for (const cmp of cmpIds) {
@@ -61,6 +61,13 @@ export const basicSetup = (ids = ["A", "B", "C"]) => {
     }
     const cmps: { [k: string]: ReturnType<typeof cmp> } = {};
     for (const _cmp of cmpIds) {
+        if(typeof onCmp === 'function') {
+            const tCmp = onCmp(_cmp, texts[_cmp]);
+            if(tCmp) {
+                cmps[_cmp] = tCmp;
+                continue;
+            }
+        }
         cmps[_cmp] = cmp(texts[_cmp]);
     }
 

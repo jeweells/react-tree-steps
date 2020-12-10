@@ -5,7 +5,7 @@ import {act} from "react-dom/test-utils";
 import {Router, useHistory} from "react-router-dom";
 import {TreeSteps} from "../index";
 import {createMemoryHistory} from "history";
-import {NextNodeOptions, TreeNodeComponentProps, TreeNodeInfo} from "../types";
+import {NextNodeOptions, PreviousNodeOptions, TreeNodeComponentProps, TreeNodeInfo} from "../types";
 import {_buildRoot, basicSetup, basicSetup2Branches, cmp, idata} from "./utils";
 
 
@@ -390,4 +390,52 @@ describe("Testing next node options", () => {
         expect(history.location.pathname).toBe("/" );
     });
 
+});
+
+
+describe("Testing previous node options", () => {
+    const ids = ["A", "B", "C", "D", "E"];
+    const performWithOptions = (options: PreviousNodeOptions) => {
+        const {texts, cmpIds, root, history} = basicSetup(ids, (_id, _text) => {
+            if(_id === ids[ids.length - 1]) {
+                return cmp(_text, {}, options)
+            }
+        });
+        root.component = cmp(texts[cmpIds[0]], {
+            selector: {
+                path: ids.slice(1)
+            }
+        });
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} initialData={idata}/>
+            </Router>,
+        );
+
+        tree.find("#next-node").simulate('click');
+        // Make sure we chose the last component
+        expect(tree.text()).toContain(texts[cmpIds[cmpIds.length - 1]]);
+        tree.find("#previous-node").simulate('click');
+        const text = tree.text();
+        return {
+            texts, cmpIds, root, history,
+            text,
+        }
+    };
+
+    it("Previous node with parent 2", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            parent: 2
+        });
+        expect(text).toContain(texts[cmpIds[cmpIds.length - 3]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[cmpIds.length - 3]);
+    });
+
+    it("Previous node with named parent", () => {
+        const {text, history, cmpIds, texts} = performWithOptions({
+            parent: ids[ids.length - 3]
+        });
+        expect(text).toContain(texts[cmpIds[cmpIds.length - 3]]);
+        expect(history.location.pathname).toBe("/" + cmpIds[cmpIds.length - 3]);
+    });
 });
