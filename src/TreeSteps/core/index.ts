@@ -6,7 +6,8 @@ import {
     NextNodeOptions,
     NodeByNameOrIndex,
     NodeByPath,
-    NodeSelector, PreviousNodeOptions,
+    NodeSelector,
+    PreviousNodeOptions,
     TreeNodeInfo,
 } from "../types";
 
@@ -20,8 +21,8 @@ export const hasOption = (opt: AllowedOptions, opt2: AllowedOptions) => {
     return !!(opt & opt2);
 };
 
-export const isNodeAllowed = <T extends object, HistoryLocationState = LocationState>(
-    node: CompactTreeNodeInfo<T>,
+export const isNodeAllowed = <T extends object, HistoryLocationState = LocationState, TError extends object = {}>(
+    node: CompactTreeNodeInfo<TError, T>,
     history: History<HistoryLocationState>,
     options = AllowedOptions.ALL,
 ) => {
@@ -38,10 +39,10 @@ export const isNodeAllowed = <T extends object, HistoryLocationState = LocationS
     return false;
 };
 export const findFirstValidNode = <T extends object,
-    HistoryLocationState = LocationState>(
-    root: CompactTreeNodeInfo<T>,
+    HistoryLocationState = LocationState, TError extends object = {}>(
+    root: CompactTreeNodeInfo<TError, T>,
     history: History<HistoryLocationState>,
-): CompactTreeNodeInfo<T> | null => {
+): CompactTreeNodeInfo<TError, T> | null => {
     for (const child of root.children || []) {
         const n = findFirstValidNode(child, history);
         if (n) {
@@ -59,11 +60,11 @@ export const findFirstValidNode = <T extends object,
     }
     return null;
 };
-export const buildCompactRoot = <T extends object>(
-    root: TreeNodeInfo<T>,
+export const buildCompactRoot = <T extends object, TError extends object>(
+    root: TreeNodeInfo<TError, T>,
     name = "#root",
-    parent?: CompactTreeNodeInfo<T>,
-): CompactTreeNodeInfo<T> => {
+    parent?: CompactTreeNodeInfo<TError, T>,
+): CompactTreeNodeInfo<TError, T> => {
     const children = [];
     const ref: any = {};
     if (root.children) {
@@ -80,10 +81,10 @@ export const buildCompactRoot = <T extends object>(
     ref.options = root.options || {};
     return ref;
 };
-export const findNode = <T extends object>(
-    root: CompactTreeNodeInfo<T>,
+export const findNode = <T extends object, TError extends object>(
+    root: CompactTreeNodeInfo<TError, T>,
     id: string,
-): CompactTreeNodeInfo<T> | null => {
+): CompactTreeNodeInfo<TError, T> | null => {
     if (root) {
         if (root.id === id) {
             return root;
@@ -99,7 +100,12 @@ export const findNode = <T extends object>(
 };
 
 
-const selectChildNode = <T extends object>(node: CompactTreeNodeInfo<T> | null, options: NextNodeOptions, deep: number, maxDepth: number): CompactTreeNodeInfo<T> | null => {
+const selectChildNode = <T extends object, TError extends object>(
+    node: CompactTreeNodeInfo<TError, T> | null,
+    options: NextNodeOptions,
+    deep: number,
+    maxDepth: number
+): CompactTreeNodeInfo<TError, T> | null => {
     if (node) {
         if (options.selector) {
             if (options.selector.hasOwnProperty('path')) {
@@ -144,12 +150,12 @@ const getMaxDeep = (selector?: NodeSelector): number => {
     return 1;
 };
 
-const _findNextNode = <T extends object>(
+const _findNextNode = <T extends object, TError extends object>(
     maxDepth: number,
-    node: CompactTreeNodeInfo<T> | null,
+    node: CompactTreeNodeInfo<TError, T> | null,
     options: NextNodeOptions = {},
     deep = 1,
-): CompactTreeNodeInfo<T> | null => {
+): CompactTreeNodeInfo<TError, T> | null => {
     if (node && node.children.length > 0) {
         const nextNode = selectChildNode(node, options, deep, maxDepth);
         if (nextNode && nextNode.options.ignoreAccessOfPreviousNode) {
@@ -163,25 +169,25 @@ const _findNextNode = <T extends object>(
     return null;
 };
 
-export const findNextNode = <T extends object>(
-    node: CompactTreeNodeInfo<T> | null,
+export const findNextNode = <T extends object, TError extends object>(
+    node: CompactTreeNodeInfo<TError, T> | null,
     options: NextNodeOptions = {},
-): CompactTreeNodeInfo<T> | null => {
+): CompactTreeNodeInfo<TError, T> | null => {
     return _findNextNode(getMaxDeep(options.selector), node, options);
 };
 
-export const findPreviousNode = <T extends object>(
-    node: CompactTreeNodeInfo<T> | null,
+export const findPreviousNode = <T extends object, TError extends object>(
+    node: CompactTreeNodeInfo<TError, T> | null,
     options: PreviousNodeOptions = {},
-): CompactTreeNodeInfo<T> | null => {
+): CompactTreeNodeInfo<TError, T> | null => {
     return _findPreviousNode(node, options)
 };
 
-export const _findPreviousNode = <T extends object>(
-    node: CompactTreeNodeInfo<T> | null,
+export const _findPreviousNode = <T extends object, TError extends object>(
+    node: CompactTreeNodeInfo<TError, T> | null,
     options: PreviousNodeOptions = {},
     deep = 1
-): CompactTreeNodeInfo<T> | null => {
+): CompactTreeNodeInfo<TError, T> | null => {
     if (node && node.parent) {
         const previousNode = node.parent;
         if (previousNode.options.ignoreAccessOfNextNode) {

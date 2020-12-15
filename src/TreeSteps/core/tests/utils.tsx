@@ -4,7 +4,7 @@ export const buildSimpleCompactNodes = (
     deep: number,
     index = 0,
     name: string = "cmp"
-): CompactTreeNodeInfo<any> | null => {
+): CompactTreeNodeInfo<any, any> | null => {
     if(index < deep) {
 
         const n = buildSimpleCompactNodes(deep, index + 1, name);

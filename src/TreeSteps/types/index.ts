@@ -1,12 +1,27 @@
 import React from "react";
 import {RouteProps} from "react-router-dom";
 
-export interface TreeNodeComponentProps<T extends object> {
-    nextNode: ITreeContext['nextNode'];
+export interface ITreeStepsError<TError extends object> {
+    error: TError | null;
+    // Errors live depends on the times the user has navigated
+    ttl: number;
+}
+export interface TreeNodeComponentProps<T extends object, TError extends object = {}> {
 
-    rootNode: ITreeContext['rootNode'];
+    nextNode: ITreeContext<TError, T>['nextNode'];
 
-    previousNode: ITreeContext['previousNode'];
+    rootNode: ITreeContext<TError, T>['rootNode'];
+
+    previousNode: ITreeContext<TError, T>['previousNode'];
+
+    data: ITreeContext<TError, T>['data'];
+
+    commit: ITreeContext<TError, T>['commit'];
+
+    error: ITreeContext<TError, T>['error'];
+
+    setError: ITreeContext<TError, T>['setError'];
+
 }
 
 export interface NodeOptions<T extends object> {
@@ -20,20 +35,18 @@ export interface NodeOptions<T extends object> {
     ignoreAccessOfPreviousNode?: boolean;
 }
 
-export interface TreeNodeInfo<T extends object> {
-    children?: { [name: string]: TreeNodeInfo<T> };
-    component: React.FC<TreeNodeComponentProps<T>>;
+export interface TreeNodeInfo<TError extends object, T extends object> {
+    children?: { [name: string]: TreeNodeInfo<TError, T> };
+    component: React.FC<TreeNodeComponentProps<T, TError>>;
     routeProps?: RouteProps;
     options?: NodeOptions<T>;
 }
 
-
-
-export interface CompactTreeNodeInfo<T extends object> {
-    component: TreeNodeInfo<T>["component"];
+export interface CompactTreeNodeInfo<TError extends object, T extends object> {
+    component: TreeNodeInfo<TError, T>["component"];
     routeProps: RouteProps;
-    parent?: CompactTreeNodeInfo<T>;
-    children: CompactTreeNodeInfo<T>[];
+    parent?: CompactTreeNodeInfo<TError, T>;
+    children: CompactTreeNodeInfo<TError, T>[];
     name: string;
     id: string;
     options: NodeOptions<T>;
@@ -68,25 +81,27 @@ export interface PreviousNodeOptions extends NodeNavigationOptions {
     parent?: number | string;
 }
 
-export interface TreeNodeProps<T extends object> {
-    node: CompactTreeNodeInfo<T>;
+export interface TreeNodeProps<TError extends object, T extends object> {
+    node: CompactTreeNodeInfo<TError, T>;
 }
 
-export interface TreeStepsProps<T extends object> {
-    root: TreeNodeInfo<T>;
+export interface TreeStepsProps<TError extends object, T extends object> {
+    root: TreeNodeInfo<TError, T>;
     initialData: T;
     statePrefix?: string;
 }
 
-export interface ITreeContext {
+export interface ITreeContext<TError extends object, T extends object> {
     nextNode(options?: NextNodeOptions): void;
 
     rootNode(options?: NodeNavigationOptions): void;
 
     previousNode(options?: PreviousNodeOptions): void;
-}
 
-export interface NodeStackItem<T extends object> {
-    id: string;
-    node: CompactTreeNodeInfo<T>;
+    data: T;
+
+    commit(data: React.SetStateAction<T>): void;
+
+    error: TError | null;
+    setError(error: React.SetStateAction<TError | null>, ttl: number): void;
 }

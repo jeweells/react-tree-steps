@@ -1,9 +1,10 @@
+import {createBrowserHistory} from "history";
 import * as React from "react";
-import { render } from "react-dom";
-import { Router } from "react-router-dom";
-import { TreeSteps} from "./TreeSteps";
-import { createBrowserHistory } from "history";
+import {render} from "react-dom";
+import {Router} from "react-router-dom";
+import {TreeSteps} from "./TreeSteps";
 import {TreeNodeComponentProps, TreeNodeInfo} from "./TreeSteps/types";
+
 const history = createBrowserHistory();
 const idata = {
   hallo: 0
@@ -29,7 +30,7 @@ const cmp = (txt: string) => (props: TreeNodeComponentProps<typeof idata>) => {
   );
 };
 
-const root: TreeNodeInfo<typeof idata> = {
+const root: TreeNodeInfo<{}, typeof idata> = {
   component: cmp("A"),
   routeProps: {
     path: "/"

@@ -8,7 +8,7 @@ initialize {
     },
     "children": Array [
       Object {
-        "data": "This is A, Renders: 1, Count: 0",
+        "data": "This is A, Renders: 1, Count: 0, Data: 0",
         "next": Object {
           "attribs": Object {},
           "children": Array [],
@@ -124,7 +124,57 @@ initialize {
                           ],
                           "name": "button",
                           "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
+                          "next": Object {
+                            "attribs": Object {
+                              "id": "commit",
+                            },
+                            "children": Array [
+                              Object {
+                                "data": "Commit",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "text",
+                              },
+                            ],
+                            "name": "button",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": Object {
+                              "attribs": Object {
+                                "id": "commit-f",
+                              },
+                              "children": Array [
+                                Object {
+                                  "data": "Commit F",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "text",
+                                },
+                              ],
+                              "name": "button",
+                              "namespace": "http://www.w3.org/1999/xhtml",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": [Circular],
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "id": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "id": undefined,
+                              },
+                            },
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "id": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "id": undefined,
+                            },
+                          },
                           "parent": [Circular],
                           "prev": [Circular],
                           "type": "tag",
@@ -326,7 +376,57 @@ initialize {
                         ],
                         "name": "button",
                         "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
+                        "next": Object {
+                          "attribs": Object {
+                            "id": "commit",
+                          },
+                          "children": Array [
+                            Object {
+                              "data": "Commit",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "button",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": Object {
+                            "attribs": Object {
+                              "id": "commit-f",
+                            },
+                            "children": Array [
+                              Object {
+                                "data": "Commit F",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "text",
+                              },
+                            ],
+                            "name": "button",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "id": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "id": undefined,
+                            },
+                          },
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "id": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "id": undefined,
+                          },
+                        },
                         "parent": [Circular],
                         "prev": [Circular],
                         "type": "tag",
@@ -405,7 +505,7 @@ initialize {
         },
         "parent": [Circular],
         "prev": Object {
-          "data": "This is A, Renders: 1, Count: 0",
+          "data": "This is A, Renders: 1, Count: 0, Data: 0",
           "next": [Circular],
           "parent": [Circular],
           "prev": null,
@@ -525,7 +625,57 @@ initialize {
                       ],
                       "name": "button",
                       "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
+                      "next": Object {
+                        "attribs": Object {
+                          "id": "commit",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "Commit",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "button",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": Object {
+                          "attribs": Object {
+                            "id": "commit-f",
+                          },
+                          "children": Array [
+                            Object {
+                              "data": "Commit F",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "button",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "id": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "id": undefined,
+                          },
+                        },
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "id": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "id": undefined,
+                        },
+                      },
                       "parent": [Circular],
                       "prev": [Circular],
                       "type": "tag",
@@ -601,7 +751,7 @@ initialize {
           "next": [Circular],
           "parent": [Circular],
           "prev": Object {
-            "data": "This is A, Renders: 1, Count: 0",
+            "data": "This is A, Renders: 1, Count: 0, Data: 0",
             "next": [Circular],
             "parent": [Circular],
             "prev": null,
@@ -714,7 +864,57 @@ initialize {
                     ],
                     "name": "button",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
+                    "next": Object {
+                      "attribs": Object {
+                        "id": "commit",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "Commit",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": Object {
+                        "attribs": Object {
+                          "id": "commit-f",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "Commit F",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "button",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "id": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "id": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "id": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "id": undefined,
+                      },
+                    },
                     "parent": [Circular],
                     "prev": [Circular],
                     "type": "tag",
@@ -797,7 +997,7 @@ initialize {
             "next": [Circular],
             "parent": [Circular],
             "prev": Object {
-              "data": "This is A, Renders: 1, Count: 0",
+              "data": "This is A, Renders: 1, Count: 0, Data: 0",
               "next": [Circular],
               "parent": [Circular],
               "prev": null,
@@ -903,7 +1103,57 @@ initialize {
                   ],
                   "name": "button",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
+                  "next": Object {
+                    "attribs": Object {
+                      "id": "commit",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Commit",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "id": "commit-f",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "Commit F",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "id": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "id": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "id": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "id": undefined,
+                    },
+                  },
                   "parent": [Circular],
                   "prev": [Circular],
                   "type": "tag",
@@ -997,7 +1247,7 @@ initialize {
               "next": [Circular],
               "parent": [Circular],
               "prev": Object {
-                "data": "This is A, Renders: 1, Count: 0",
+                "data": "This is A, Renders: 1, Count: 0, Data: 0",
                 "next": [Circular],
                 "parent": [Circular],
                 "prev": null,
@@ -1102,7 +1352,57 @@ initialize {
                 ],
                 "name": "button",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
+                "next": Object {
+                  "attribs": Object {
+                    "id": "commit",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Commit",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "id": "commit-f",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Commit F",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "id": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "id": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
+                },
                 "parent": [Circular],
                 "prev": [Circular],
                 "type": "tag",
@@ -1193,7 +1493,7 @@ initialize {
                 "next": [Circular],
                 "parent": [Circular],
                 "prev": Object {
-                  "data": "This is A, Renders: 1, Count: 0",
+                  "data": "This is A, Renders: 1, Count: 0, Data: 0",
                   "next": [Circular],
                   "parent": [Circular],
                   "prev": null,
@@ -1291,7 +1591,57 @@ initialize {
               ],
               "name": "button",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
+              "next": Object {
+                "attribs": Object {
+                  "id": "commit",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Commit",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "id": "commit-f",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Commit F",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
               "parent": [Circular],
               "prev": [Circular],
               "type": "tag",
@@ -1389,7 +1739,7 @@ initialize {
                   "next": [Circular],
                   "parent": [Circular],
                   "prev": Object {
-                    "data": "This is A, Renders: 1, Count: 0",
+                    "data": "This is A, Renders: 1, Count: 0, Data: 0",
                     "next": [Circular],
                     "parent": [Circular],
                     "prev": null,
@@ -1480,7 +1830,57 @@ initialize {
             ],
             "name": "button",
             "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
+            "next": Object {
+              "attribs": Object {
+                "id": "commit",
+              },
+              "children": Array [
+                Object {
+                  "data": "Commit",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "id": "commit-f",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Commit F",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
             "parent": [Circular],
             "prev": [Circular],
             "type": "tag",
@@ -1585,7 +1985,7 @@ initialize {
                     "next": [Circular],
                     "parent": [Circular],
                     "prev": Object {
-                      "data": "This is A, Renders: 1, Count: 0",
+                      "data": "This is A, Renders: 1, Count: 0, Data: 0",
                       "next": [Circular],
                       "parent": [Circular],
                       "prev": null,
@@ -1669,7 +2069,57 @@ initialize {
           ],
           "name": "button",
           "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
+          "next": Object {
+            "attribs": Object {
+              "id": "commit",
+            },
+            "children": Array [
+              Object {
+                "data": "Commit",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "id": "commit-f",
+              },
+              "children": Array [
+                Object {
+                  "data": "Commit F",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
           "parent": [Circular],
           "prev": [Circular],
           "type": "tag",
@@ -1781,7 +2231,7 @@ initialize {
                       "next": [Circular],
                       "parent": [Circular],
                       "prev": Object {
-                        "data": "This is A, Renders: 1, Count: 0",
+                        "data": "This is A, Renders: 1, Count: 0, Data: 0",
                         "next": [Circular],
                         "parent": [Circular],
                         "prev": null,
@@ -1858,7 +2308,57 @@ initialize {
         ],
         "name": "button",
         "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
+        "next": Object {
+          "attribs": Object {
+            "id": "commit",
+          },
+          "children": Array [
+            Object {
+              "data": "Commit",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "id": "commit-f",
+            },
+            "children": Array [
+              Object {
+                "data": "Commit F",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
@@ -1977,7 +2477,7 @@ initialize {
                         "next": [Circular],
                         "parent": [Circular],
                         "prev": Object {
-                          "data": "This is A, Renders: 1, Count: 0",
+                          "data": "This is A, Renders: 1, Count: 0, Data: 0",
                           "next": [Circular],
                           "parent": [Circular],
                           "prev": null,
@@ -2006,6 +2506,514 @@ initialize {
                   "type": "tag",
                   "x-attribsNamespace": Object {},
                   "x-attribsPrefix": Object {},
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "id": "commit",
+        },
+        "children": Array [
+          Object {
+            "data": "Commit",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "button",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "id": "commit-f",
+          },
+          "children": Array [
+            Object {
+              "data": "Commit F",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "id": "go-forward",
+          },
+          "children": Array [
+            Object {
+              "data": "Go Forward",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {
+              "id": "go-back",
+            },
+            "children": Array [
+              Object {
+                "data": "Go Back",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "id": "next-node",
+              },
+              "children": Array [
+                Object {
+                  "data": "Next node",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "id": "root-node",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Root node",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "id": "previous-node",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Previous node",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {},
+                    "children": Array [],
+                    "name": "br",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "id": "increment",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "Increment",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": Object {
+                        "attribs": Object {
+                          "id": "decrement",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "Decrement",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "button",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": Object {
+                          "attribs": Object {},
+                          "children": Array [],
+                          "name": "br",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": Object {
+                            "data": "This is A, Renders: 1, Count: 0, Data: 0",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {},
+                          "x-attribsPrefix": Object {},
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "id": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "id": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "id": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "id": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "id": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "id": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "id": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "id": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "id": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "id": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "id": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "id": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "id": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "id": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "id": "commit-f",
+        },
+        "children": Array [
+          Object {
+            "data": "Commit F",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "button",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "id": "commit",
+          },
+          "children": Array [
+            Object {
+              "data": "Commit",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "button",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {
+              "id": "go-forward",
+            },
+            "children": Array [
+              Object {
+                "data": "Go Forward",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "id": "go-back",
+              },
+              "children": Array [
+                Object {
+                  "data": "Go Back",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "id": "next-node",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Next node",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "id": "root-node",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Root node",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "id": "previous-node",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Previous node",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {},
+                      "children": Array [],
+                      "name": "br",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": Object {
+                        "attribs": Object {
+                          "id": "increment",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "Increment",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "button",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": Object {
+                          "attribs": Object {
+                            "id": "decrement",
+                          },
+                          "children": Array [
+                            Object {
+                              "data": "Decrement",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "button",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": Object {
+                            "attribs": Object {},
+                            "children": Array [],
+                            "name": "br",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": Object {
+                              "data": "This is A, Renders: 1, Count: 0, Data: 0",
+                              "next": [Circular],
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                            "type": "tag",
+                            "x-attribsNamespace": Object {},
+                            "x-attribsPrefix": Object {},
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "id": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "id": undefined,
+                          },
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "id": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "id": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "id": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "id": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "id": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "id": undefined,
+                  },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {

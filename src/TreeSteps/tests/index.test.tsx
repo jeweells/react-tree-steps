@@ -1,13 +1,11 @@
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import {configure, mount, render, shallow, ShallowWrapper} from "enzyme";
-import * as React from "react";
-import {act} from "react-dom/test-utils";
-import {Router, useHistory} from "react-router-dom";
-import {TreeSteps} from "../index";
+import {configure, mount, render} from "enzyme";
 import {createMemoryHistory} from "history";
-import {NextNodeOptions, PreviousNodeOptions, TreeNodeComponentProps, TreeNodeInfo} from "../types";
-import {_buildRoot, basicSetup, basicSetup2Branches, basicSetupTunnelNode, cmp, idata} from "./utils";
-
+import * as React from "react";
+import {Router} from "react-router-dom";
+import {TreeSteps} from "../index";
+import {NextNodeOptions, PreviousNodeOptions, TreeNodeInfo} from "../types";
+import {basicSetup, basicSetup2Branches, basicSetupTunnelNode, cmp, idata} from "./utils";
 
 
 configure({adapter: new Adapter()});
@@ -17,7 +15,7 @@ configure({adapter: new Adapter()});
 it("Should render one component", () => {
     const textCmpA = "This is A";
     const cmpA = cmp(textCmpA);
-    const root: TreeNodeInfo<typeof idata> = {
+    const root: TreeNodeInfo<{}, typeof idata> = {
         component: cmpA,
         routeProps: {
             path: "/",
@@ -581,6 +579,137 @@ describe("Testing tunnel nodes", () => {
         expect(history.location.pathname).toBe("/");
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[0]]);
+    });
+
+});
+
+
+describe("Commit data", () => {
+    const ids = ["A", "B", "C"];
+
+    const perform = () => {
+        const {texts, cmpIds, root, history} = basicSetup(ids);
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} initialData={idata}/>
+            </Router>,
+        );
+        return {
+            texts, cmpIds, root, history, tree
+        }
+    };
+
+    it("Simple commit data should change component data",() => {
+        const {tree} = perform();
+        tree.find("#commit").simulate('click');
+        const text = tree.text();
+        expect(text).toMatch(/Renders: 2/);
+        expect(text).toMatch(/Data: 1/);
+    });
+
+    it("Simple commit with function data should change component data",() => {
+        const {tree} = perform();
+        tree.find("#commit-f").simulate('click');
+        const text = tree.text();
+        expect(text).toMatch(/Renders: 2/);
+        expect(text).toMatch(/Data: 1/);
+    });
+
+
+    it("Consecutive commits should change component data",() => {
+        const {tree} = perform();
+        tree.find("#commit").simulate('click');
+        tree.find("#commit").simulate('click');
+        tree.find("#commit").simulate('click');
+        const text = tree.text();
+        expect(text).toMatch(/Renders: 4/);
+        expect(text).toMatch(/Data: 3/);
+    });
+
+    it("Committing data should not refresh component inner state",() => {
+        const {tree} = perform();
+        tree.find("#increment").simulate("click");
+        tree.find("#commit").simulate('click');
+        tree.find("#commit-f").simulate('click');
+        const text = tree.text();
+        expect(text).toMatch(/Renders: 4/);
+        expect(text).toMatch(/Count: 1/);
+        expect(text).toMatch(/Data: 2/);
+    });
+
+    it("Comit -> next -> prev should keep committed data",() => {
+        const {texts, cmpIds, tree} = perform();
+        tree.find("#commit").simulate("click");
+        tree.find("#next-node").simulate('click');
+        const text = tree.text();
+        // Make sure we are on the next node
+        expect(text).toContain(texts[cmpIds[1]]);
+        tree.find("#previous-node").simulate('click');
+        const text1 = tree.text();
+        // Make sure we are on the previous node
+        expect(text1).toContain(texts[cmpIds[0]]);
+
+        expect(text1).toMatch(/Renders: 1/);
+        expect(text1).toMatch(/Data: 1/);
+    });
+
+    it("Commit -> next -> next should keep committed data respectively (checked backwards)",() => {
+        const {texts, cmpIds, tree} = perform();
+
+
+        for(const dataTarget of [1, 2]) {
+            tree.find("#next-node").simulate('click');
+            tree.find("#commit").simulate("click");
+            const text = tree.text();
+            expect(text).toContain(texts[cmpIds[dataTarget]]);
+            expect(text).toMatch(`Data: ${dataTarget}`);
+        }
+
+        for(const dataTarget of [0, 1].reverse()) {
+            tree.find("#previous-node").simulate('click');
+            const text = tree.text();
+            expect(text).toContain(texts[cmpIds[dataTarget]]);
+            expect(text).toMatch(`Data: ${dataTarget}`);
+        }
+    });
+
+
+    it("Commit -> next -> commit -> back -> commit (x2) -> next should replace committed data",() => {
+        const {texts, cmpIds, tree} = perform();
+
+        tree.find("#commit").simulate("click");
+        tree.find("#next-node").simulate('click');
+        const text = tree.text();
+        expect(text).toContain(texts[cmpIds[1]]);
+        expect(text).toMatch(`Data: ${1}`);
+        tree.find("#commit").simulate("click");
+        const text1 = tree.text();
+        expect(text1).toMatch(`Data: ${2}`);
+        tree.find("#previous-node").simulate("click");
+        const _text2 = tree.text();
+        expect(_text2).toMatch(`Data: ${1}`);
+        tree.find("#commit").simulate("click");
+        tree.find("#commit").simulate("click");
+        const text2 = tree.text();
+        expect(text2).toMatch(`Data: ${3}`);
+        tree.find("#next-node").simulate('click');
+        const text3 = tree.text();
+        expect(text3).toMatch(`Data: ${3}`);
+
+    });
+
+
+    it("Committing data should render the component only once",() => {
+        const {tree} = perform();
+
+        for(const _data of [1,2,3,4]) {
+            tree.find("#commit").simulate("click");
+            const text = tree.text();
+            expect(text).toMatch(`Data: ${_data}`);
+            // + 1 counts as the render when mounted
+            expect(text).toMatch(`Renders: ${_data + 1}`);
+        }
+
     });
 
 });

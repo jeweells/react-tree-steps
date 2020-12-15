@@ -1,5 +1,4 @@
 import * as React from "react";
-import {CompactTreeNodeInfo, TreeNodeInfo} from "../../types";
 import {AllowedOptions, findNextNode, findPreviousNode, hasOption} from "../index";
 import {buildSimpleCompactNodes} from "./utils";
 

@@ -25,7 +25,7 @@ export const cmp = (
     r.renders += 1;
     return (
         <div id="noderoot">
-            {txt}, Renders: {r.renders}, Count: {count}
+            {txt}, Renders: {r.renders}, Count: {count}, Data: {props.data.hallo}
             <br/>
             <button id={"decrement"} onClick={() => setCount((p) => p - 1)}>Decrement</button>
             <button id={"increment"} onClick={() => setCount((p) => p + 1)}>Increment</button>
@@ -35,10 +35,15 @@ export const cmp = (
             <button id={"next-node"} onClick={() => props.nextNode(nextOptions)}>Next node</button>
             <button id={"go-back"} onClick={() => history.goBack()}>Go Back</button>
             <button id={"go-forward"} onClick={() => history.goForward()}>Go Forward</button>
+            <button id={"commit"} onClick={() => props.commit({ ...props.data, hallo: props.data.hallo + 1 })}>Commit</button>
+            <button id={"commit-f"} onClick={() => props.commit(prev => ({ ...prev, hallo: prev.hallo + 1 }))}>Commit F</button>
         </div>
     );
 };
-export const _buildRoot = (cmps: { [k: string]: ReturnType<typeof cmp> }, cmpIds: string[], startIndex = 0): TreeNodeInfo<typeof idata> => {
+
+
+
+export const _buildRoot = (cmps: { [k: string]: ReturnType<typeof cmp> }, cmpIds: string[], startIndex = 0): TreeNodeInfo<any, typeof idata> => {
     return {
         component: cmps[cmpIds[startIndex]],
         routeProps: {

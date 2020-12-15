@@ -2,10 +2,10 @@ import React from "react";
 import {TreeContext} from "../context";
 import {ITreeContext, TreeNodeProps} from "../types";
 
-export const TreeNode = <T extends object>({
+export const TreeNode = <TError extends object, T extends object>({
     node,
-}: React.PropsWithChildren<TreeNodeProps<T>>) => {
-    const {nextNode, previousNode, rootNode} = React.useContext<ITreeContext>(
+}: React.PropsWithChildren<TreeNodeProps<TError, T>>) => {
+    const {nextNode, previousNode, rootNode, data, commit, setError, error} = React.useContext<ITreeContext<TError, T>>(
         TreeContext,
     );
     if (node) {
@@ -15,6 +15,10 @@ export const TreeNode = <T extends object>({
                 nextNode={nextNode}
                 previousNode={previousNode}
                 rootNode={rootNode}
+                data={data}
+                commit={commit}
+                error={error}
+                setError={setError}
             />
         );
     }
