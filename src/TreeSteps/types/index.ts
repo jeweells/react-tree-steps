@@ -103,5 +103,5 @@ export interface ITreeContext<TError extends object, T extends object> {
     commit(data: React.SetStateAction<T>): void;
 
     error: TError | null;
-    setError(error: React.SetStateAction<TError | null>, ttl: number): void;
+    setError(error: React.SetStateAction<TError | null>, ttl?: number): void;
 }

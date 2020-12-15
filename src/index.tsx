@@ -29,8 +29,10 @@ const cmp = (txt: string) => (props: TreeNodeComponentProps<typeof idata>) => {
     </div>
   );
 };
-
-const root: TreeNodeInfo<{}, typeof idata> = {
+type MyError = {
+  message: string;
+};
+const root: TreeNodeInfo<MyError, typeof idata> = {
   component: cmp("A"),
   routeProps: {
     path: "/"
@@ -62,7 +64,7 @@ const root: TreeNodeInfo<{}, typeof idata> = {
 const rootElement = document.getElementById("root");
 render(
   <Router history={history}>
-    <TreeSteps root={root} initialData={idata} />
+    <TreeSteps<typeof idata, MyError> root={root} initialData={idata} />
   </Router>,
   rootElement
 );

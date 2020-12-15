@@ -11,7 +11,6 @@ import {basicSetup, basicSetup2Branches, basicSetupTunnelNode, cmp, idata} from 
 configure({adapter: new Adapter()});
 
 
-
 it("Should render one component", () => {
     const textCmpA = "This is A";
     const cmpA = cmp(textCmpA);
@@ -117,7 +116,7 @@ describe("Testing direct access option", () => {
         const {texts, cmpIds, root, history} = basicSetup();
         history.push("/" + cmpIds[1]);
         // @ts-ignore
-        root.children[cmpIds[1]].options = { allowDirectAccess: true };
+        root.children[cmpIds[1]].options = {allowDirectAccess: true};
         expect(history.location.pathname).toBe("/" + cmpIds[1]);
         const tree = mount(
             <Router history={history}>
@@ -130,7 +129,6 @@ describe("Testing direct access option", () => {
     });
 
 });
-
 
 
 describe("Testing next node options", () => {
@@ -170,7 +168,7 @@ describe("Testing next node options", () => {
     const nextNodeWithInvalidDeep = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                deep: 100
+                deep: 100,
             },
             useReplace,
         });
@@ -187,7 +185,7 @@ describe("Testing next node options", () => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
                 deep: ids.length - 1,
-                child: "E"
+                child: "E",
             },
             useReplace,
         });
@@ -205,9 +203,9 @@ describe("Testing next node options", () => {
         // since it's not verified two nodes won't have the same name
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                child: "E"
+                child: "E",
             },
-            useReplace
+            useReplace,
         });
         expect(history.entries.length).toBe(1);
         expect(text).toMatch(/Renders: 1/);
@@ -221,7 +219,7 @@ describe("Testing next node options", () => {
     const next3rdNodeWithFullNamePath = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                path: ids.slice(1, 4)
+                path: ids.slice(1, 4),
             },
             useReplace,
         });
@@ -234,12 +232,12 @@ describe("Testing next node options", () => {
     it("Next 3rd node with full name path", () => next3rdNodeWithFullNamePath());
     it("Next 3rd node with full name path and useReplace", () => next3rdNodeWithFullNamePath(true));
 
-    const next3rdNodeWithMixedPath = (useReplace?: boolean) =>  {
+    const next3rdNodeWithMixedPath = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                path: [0, ids[2], 0]
+                path: [0, ids[2], 0],
             },
-            useReplace
+            useReplace,
         });
         expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
@@ -253,9 +251,9 @@ describe("Testing next node options", () => {
     const next3rdNodeWithNumberPath = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                path: [0, 0, 0]
+                path: [0, 0, 0],
             },
-            useReplace
+            useReplace,
         });
         expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
@@ -268,9 +266,9 @@ describe("Testing next node options", () => {
     const nextNodeWithDeep1 = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                deep: 1
+                deep: 1,
             },
-            useReplace
+            useReplace,
         });
         expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
@@ -284,9 +282,9 @@ describe("Testing next node options", () => {
     const nextNodeWithChild0 = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                child: 0
+                child: 0,
             },
-            useReplace
+            useReplace,
         });
         expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
@@ -298,9 +296,9 @@ describe("Testing next node options", () => {
     const nextNodeWithNamedChild = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                child: ids[1]
+                child: ids[1],
             },
-            useReplace
+            useReplace,
         });
         expect(history.entries.length).toBe(useReplace ? 1 : 2);
         expect(text).toMatch(/Renders: 1/);
@@ -313,7 +311,7 @@ describe("Testing next node options", () => {
     const nextNodeWithFullNamedPath = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                path: [ids[1]]
+                path: [ids[1]],
             },
             useReplace,
         });
@@ -329,7 +327,7 @@ describe("Testing next node options", () => {
     const nextNodeWithNumberPath = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             selector: {
-                path: [0]
+                path: [0],
             },
             useReplace,
         });
@@ -350,7 +348,7 @@ describe("Testing next node options", () => {
                 path: [
                     cmpIds[1],
                     ...sndIds.slice(0, 2),
-                ]
+                ],
             },
             useReplace,
         });
@@ -378,9 +376,9 @@ describe("Testing next node options", () => {
                     0,
                     1,
                     0,
-                ]
+                ],
             },
-            useReplace
+            useReplace,
         });
         const tree = mount(
             <Router history={history}>
@@ -407,9 +405,9 @@ describe("Testing next node options", () => {
                     0,
                     sndIds[0],
                     0,
-                ]
+                ],
             },
-            useReplace
+            useReplace,
         });
         const tree = mount(
             <Router history={history}>
@@ -436,7 +434,7 @@ describe("Testing next node options", () => {
                     0,
                     "asdasdsad",
                     0,
-                ]
+                ],
             },
             useReplace,
         });
@@ -447,10 +445,10 @@ describe("Testing next node options", () => {
         );
         tree.find("#next-node").simulate('click');
         const text = tree.text();
-        expect(history.entries.length).toBe( 1);
+        expect(history.entries.length).toBe(1);
         expect(text).toMatch(/Renders: 1/);
         expect(text).toContain(texts[cmpIds[0]]);
-        expect(history.location.pathname).toBe("/" );
+        expect(history.location.pathname).toBe("/");
     };
     it("Next nodes with 2 branches with invalid path", () => nextNodesWith2BranchesWithInvalidPath());
     it("Next nodes with 2 branches with invalid path and useReplace",
@@ -463,14 +461,14 @@ describe("Testing previous node options", () => {
     const ids = ["A", "B", "C", "D", "E"];
     const performWithOptions = (options: PreviousNodeOptions) => {
         const {texts, cmpIds, root, history} = basicSetup(ids, (_id, _text) => {
-            if(_id === ids[ids.length - 1]) {
+            if (_id === ids[ids.length - 1]) {
                 return cmp(_text, {}, options)
             }
         });
         root.component = cmp(texts[cmpIds[0]], {
             selector: {
-                path: ids.slice(1)
-            }
+                path: ids.slice(1),
+            },
         });
         const tree = mount(
             <Router history={history}>
@@ -505,7 +503,7 @@ describe("Testing previous node options", () => {
     const previousNodeWithNamedParent = (useReplace?: boolean) => {
         const {text, history, cmpIds, texts} = performWithOptions({
             parent: ids[ids.length - 3],
-            useReplace
+            useReplace,
         });
         expect(history.entries.length).toBe(useReplace ? 2 : 3);
         expect(text).toContain(texts[cmpIds[cmpIds.length - 3]]);
@@ -595,11 +593,11 @@ describe("Commit data", () => {
             </Router>,
         );
         return {
-            texts, cmpIds, root, history, tree
+            texts, cmpIds, root, history, tree,
         }
     };
 
-    it("Simple commit data should change component data",() => {
+    it("Simple commit data should change component data", () => {
         const {tree} = perform();
         tree.find("#commit").simulate('click');
         const text = tree.text();
@@ -607,7 +605,7 @@ describe("Commit data", () => {
         expect(text).toMatch(/Data: 1/);
     });
 
-    it("Simple commit with function data should change component data",() => {
+    it("Simple commit with function data should change component data", () => {
         const {tree} = perform();
         tree.find("#commit-f").simulate('click');
         const text = tree.text();
@@ -616,7 +614,7 @@ describe("Commit data", () => {
     });
 
 
-    it("Consecutive commits should change component data",() => {
+    it("Consecutive commits should change component data", () => {
         const {tree} = perform();
         tree.find("#commit").simulate('click');
         tree.find("#commit").simulate('click');
@@ -626,7 +624,7 @@ describe("Commit data", () => {
         expect(text).toMatch(/Data: 3/);
     });
 
-    it("Committing data should not refresh component inner state",() => {
+    it("Committing data should not refresh component inner state", () => {
         const {tree} = perform();
         tree.find("#increment").simulate("click");
         tree.find("#commit").simulate('click');
@@ -637,7 +635,7 @@ describe("Commit data", () => {
         expect(text).toMatch(/Data: 2/);
     });
 
-    it("Comit -> next -> prev should keep committed data",() => {
+    it("Comit -> next -> prev should keep committed data", () => {
         const {texts, cmpIds, tree} = perform();
         tree.find("#commit").simulate("click");
         tree.find("#next-node").simulate('click');
@@ -653,11 +651,11 @@ describe("Commit data", () => {
         expect(text1).toMatch(/Data: 1/);
     });
 
-    it("Commit -> next -> next should keep committed data respectively (checked backwards)",() => {
+    it("Commit -> next -> next should keep committed data respectively (checked backwards)", () => {
         const {texts, cmpIds, tree} = perform();
 
 
-        for(const dataTarget of [1, 2]) {
+        for (const dataTarget of [1, 2]) {
             tree.find("#next-node").simulate('click');
             tree.find("#commit").simulate("click");
             const text = tree.text();
@@ -665,7 +663,7 @@ describe("Commit data", () => {
             expect(text).toMatch(`Data: ${dataTarget}`);
         }
 
-        for(const dataTarget of [0, 1].reverse()) {
+        for (const dataTarget of [0, 1].reverse()) {
             tree.find("#previous-node").simulate('click');
             const text = tree.text();
             expect(text).toContain(texts[cmpIds[dataTarget]]);
@@ -674,7 +672,7 @@ describe("Commit data", () => {
     });
 
 
-    it("Commit -> next -> commit -> back -> commit (x2) -> next should replace committed data",() => {
+    it("Commit -> next -> commit -> back -> commit (x2) -> next should replace committed data", () => {
         const {texts, cmpIds, tree} = perform();
 
         tree.find("#commit").simulate("click");
@@ -699,10 +697,10 @@ describe("Commit data", () => {
     });
 
 
-    it("Committing data should render the component only once",() => {
+    it("Committing data should render the component only once", () => {
         const {tree} = perform();
 
-        for(const _data of [1,2,3,4]) {
+        for (const _data of [1, 2, 3, 4]) {
             tree.find("#commit").simulate("click");
             const text = tree.text();
             expect(text).toMatch(`Data: ${_data}`);
@@ -711,5 +709,114 @@ describe("Commit data", () => {
         }
 
     });
+
+});
+
+
+describe("Setting error flow should work correctly", () => {
+    const ids = ["A", "B", "C"];
+
+    const perform = () => {
+        const {texts, cmpIds, root, history} = basicSetup(ids);
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} initialData={idata}/>
+            </Router>,
+        );
+        return {
+            texts, cmpIds, root, history, tree,
+        }
+    };
+
+    it("Setting an error should be shown and render the component only once", () => {
+        const {tree} = perform();
+        {
+            const text = tree.text();
+            expect(text).toMatch("Renders: 1");
+        }
+        {
+            tree.find('#error').simulate('click');
+            const text = tree.text();
+            expect(text).toMatch("Renders: 2");
+            expect(text).toMatch("Errors: This is an error");
+        }
+        {
+            tree.find('#error').simulate('click');
+            const text = tree.text();
+            expect(text).toMatch("Renders: 3");
+            expect(text).toMatch("Errors: This is another error");
+        }
+    });
+
+    it("Going to root node should flush the error", () => {
+        const {tree} = perform();
+        {
+            const text = tree.text();
+            expect(text).toMatch("Renders: 1");
+        }
+        {
+            tree.find('#error').simulate('click');
+            const text = tree.text();
+            expect(text).toMatch("Renders: 2");
+            expect(text).toMatch("Errors: This is an error");
+        }
+        {
+            tree.find('#root-node').simulate('click');
+            const text = tree.text();
+            expect(text).toMatch("Renders: 3");
+            expect(text).not.toMatch("Errors: This is another error");
+        }
+    });
+
+
+    it("Going to next node should flush the error", () => {
+        const {tree} = perform();
+        {
+            const text = tree.text();
+            expect(text).toMatch("Renders: 1");
+        }
+        {
+            tree.find('#error').simulate('click');
+            const text = tree.text();
+            expect(text).toMatch("Renders: 2");
+            expect(text).toMatch("Errors: This is an error");
+        }
+        {
+            tree.find('#next-node').simulate('click');
+            const text = tree.text();
+            expect(text).toMatch("Renders: 1");
+            expect(text).not.toMatch("Errors: This is another error");
+        }
+    });
+
+    it("Going to previous node should not flush the error; doing it twice will do", () => {
+        const {tree, texts, cmpIds} = perform();
+        {
+            tree.find('#next-node').simulate('click');
+            tree.find('#next-node').simulate('click');
+            expect(tree.text()).toMatch(texts[cmpIds[2]])
+        }
+        {
+            tree.find('#error').simulate('click');
+            const text = tree.text();
+            expect(text).toMatch("Renders: 2");
+            expect(text).toMatch("Errors: This is an error");
+        }
+        {
+            tree.find('#previous-node').simulate('click');
+            const text = tree.text();
+            expect(text).toMatch(texts[cmpIds[1]]);
+            expect(text).toMatch("Renders: 1");
+            expect(text).toMatch("Errors: This is an error");
+        }
+        {
+            tree.find('#previous-node').simulate('click');
+            const text = tree.text();
+            expect(text).toMatch(texts[cmpIds[0]]);
+            expect(text).toMatch("Renders: 1");
+            expect(text).not.toMatch("Errors: This is an error");
+        }
+    });
+
 
 });

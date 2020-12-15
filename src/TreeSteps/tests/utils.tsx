@@ -25,7 +25,7 @@ export const cmp = (
     r.renders += 1;
     return (
         <div id="noderoot">
-            {txt}, Renders: {r.renders}, Count: {count}, Data: {props.data.hallo}
+            {txt}, Renders: {r.renders}, Count: {count}, Data: {props.data.hallo}, Errors: {props.error}
             <br/>
             <button id={"decrement"} onClick={() => setCount((p) => p - 1)}>Decrement</button>
             <button id={"increment"} onClick={() => setCount((p) => p + 1)}>Increment</button>
@@ -37,6 +37,7 @@ export const cmp = (
             <button id={"go-forward"} onClick={() => history.goForward()}>Go Forward</button>
             <button id={"commit"} onClick={() => props.commit({ ...props.data, hallo: props.data.hallo + 1 })}>Commit</button>
             <button id={"commit-f"} onClick={() => props.commit(prev => ({ ...prev, hallo: prev.hallo + 1 }))}>Commit F</button>
+            <button id={"error"} onClick={() => props.setError(prev => prev === "This is an error" ? "This is another error" : "This is an error")}>Throw error</button>
         </div>
     );
 };

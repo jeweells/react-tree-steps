@@ -13,7 +13,7 @@ import {
     TreeStepsProps,
 } from "./types";
 
-export const TreeSteps = <TError extends object = {}, T extends object = {}>({
+export const TreeSteps = <T extends object = {}, TError extends object = {}>({
     root,
     initialData,
     statePrefix = "node:",
@@ -52,7 +52,7 @@ export const TreeSteps = <TError extends object = {}, T extends object = {}>({
             ...prev,
             [currentNode.id]: (data instanceof Function ? data(getDataSafely(prev, currentNode)) : data),
         }));
-    }, [currentNode, dataMap, initialData]);
+    }, [currentNode, getDataSafely]);
 
     const currentNodeValidRef = React.useRef(currentNode);
 
@@ -76,6 +76,11 @@ export const TreeSteps = <TError extends object = {}, T extends object = {}>({
     );
 
     const rootNode = React.useCallback((options: NodeNavigationOptions = {}) => {
+        // Going root node cleans errors
+        setNodeError({
+            error: null,
+            ttl: 0,
+        });
         goTo(compactRoot, options);
     }, [compactRoot, goTo]);
 
@@ -98,12 +103,22 @@ export const TreeSteps = <TError extends object = {}, T extends object = {}>({
                 }
                 return dat;
             });
+            // Going next node cleans errors
+            setNodeError({
+                error: null,
+                ttl: 0,
+            });
             goTo(child, options);
         }
     };
     const previousNode = (options: PreviousNodeOptions = {}) => {
         const parent = findPreviousNode(currentNode, options);
         if (parent) {
+            // Going previous node reduces time to live (ttl) of an error
+            setNodeError(prev => ({
+                error: prev.ttl <= 0 ? null : prev.error,
+                ttl: Math.max(prev.ttl - 1, 0),
+            }));
             goTo(parent, options);
         } else {
             rootNode(options);
