@@ -1,20 +1,14 @@
 {
-  "name": "tree-steps",
+  "name": "react-tree-steps",
   "version": "1.0.0",
-  "description": "React and TypeScript example starter project",
+  "description": "Tree flow structure which requires passing data between steps while maintaining the url updated",
   "keywords": [
     "typescript",
     "react",
     "starter"
   ],
-  "main": "src/index.tsx",
-  "dependencies": {
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0",
-    "react-router": "5.2.0",
-    "react-router-dom": "^5.2.0",
-    "uuid": "^8.3.1"
-  },
+  "main": "build/index.js",
+  "dependencies": {},
   "devDependencies": {
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
@@ -28,8 +22,20 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "jest": "^24.9.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
-    "typescript": "3.7.5"
+    "typescript": "3.7.5",
+    "uuid": "^8.3.2"
+  },
+  "peer-dependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0",
+    "react-router": "5.2.0",
+    "react-router-dom": "^5.2.0",
+    "uuid": "^8.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
