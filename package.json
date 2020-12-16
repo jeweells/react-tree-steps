@@ -1,14 +1,20 @@
 {
   "name": "react-tree-steps",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Tree flow structure which requires passing data between steps while maintaining the url updated",
   "keywords": [
     "typescript",
     "react",
     "starter"
   ],
+  "files": [
+    "build"
+  ],
   "main": "build/index.js",
-  "dependencies": {
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
+  "dependencies": {},
+  "devDependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
@@ -35,7 +41,7 @@
     "fs-extra": "^8.1.0",
     "html-webpack-plugin": "4.0.0-beta.11",
     "identity-obj-proxy": "3.0.0",
-    "jest": "24.9.0",
+    "jest": "^24.9.0",
     "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
@@ -60,9 +66,7 @@
     "webpack": "4.42.0",
     "webpack-dev-server": "3.11.0",
     "webpack-manifest-plugin": "2.2.0",
-    "workbox-webpack-plugin": "4.3.1"
-  },
-  "devDependencies": {
+    "workbox-webpack-plugin": "4.3.1",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^24.9.1",
@@ -74,11 +78,15 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.3.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
-    "jest": "^24.9.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "rollup": "^2.35.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.29.0",
     "typescript": "3.7.5",
     "uuid": "^8.3.2",
     "webpack-node-externals": "^2.5.2"
@@ -92,7 +100,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "rollup -c",
     "test": "node scripts/test.js --env=jsdom"
   },
   "browserslist": [
