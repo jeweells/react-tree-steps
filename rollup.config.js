@@ -2,22 +2,26 @@ import typescript from "rollup-plugin-typescript2";
 import commonjs from "rollup-plugin-commonjs";
 import external from "rollup-plugin-peer-deps-external";
 import resolve from "rollup-plugin-node-resolve";
-
-import pkg from "./package.json";
+import {terser} from 'rollup-plugin-terser';
+import copy from 'rollup-plugin-copy'
+import path from "path";
+import tscfg from "./tsconfig.json";
 
 export default {
     input: "src/index.ts",
     output: [
         {
-            file: pkg.main,
+            file: path.join(tscfg.compilerOptions.outDir, "index.js"),
             format: "cjs",
             exports: "named",
+            compact: true,
             sourcemap: true
         },
         {
-            file: pkg.module,
+            file: path.join(tscfg.compilerOptions.outDir, "index.es.js"),
             format: "es",
             exports: "named",
+            compact: true,
             sourcemap: true
         }
     ],
@@ -27,20 +31,24 @@ export default {
         typescript({
             rollupCommonJSResolveHack: true,
             exclude: ["**/__tests__/**", "**/tests/**"],
-            clean: true
+            clean: true,
+
         }),
-        commonjs({
-            include: [
-                'node_modules/**'
-            ],
-            exclude: [
-                'node_modules/process-es6/**'
-            ],
-            namedExports: {
-                'node_modules/react/index.js': ['Children', 'Component', 'PropTypes', 'createElement'],
-                'node_modules/react-dom/index.js': ['render'],
-                'node_modules/react-is/index.js': ['isValidElementType']
-            }
+        commonjs(),
+        terser({
+            toplevel: true,
+        }),
+        copy({
+            targets: [
+                { src: 'package.json', dest: tscfg.compilerOptions.outDir },
+            ]
         })
+    ],
+    external: [
+        "react",
+        "react-dom",
+        "react-router",
+        "react-router-dom",
+        "uuid"
     ]
 };
