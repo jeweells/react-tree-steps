@@ -3,7 +3,7 @@
   "version": "1.0.10",
   "author": "jeweells",
   "license": "MIT",
-  "description": "Tree structure which requires passing data between steps while maintaining the url updated",
+  "description": "Tree structure that allows passing data between steps while maintaining the url updated",
   "repository": {
     "url": "https://github.com/jeweells/react-tree-steps.git",
     "type": "git"
