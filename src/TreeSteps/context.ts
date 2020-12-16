@@ -12,6 +12,7 @@ export const TreeContext = React.createContext<ITreeContext<any, any>>({
         return null;
     },
     data: {},
+    previousData: {},
     commit(data: (<T>(prevState: any) => any) | any): void {
     },
     error: null,

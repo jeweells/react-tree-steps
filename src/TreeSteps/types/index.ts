@@ -3,7 +3,7 @@ import {RouteProps} from "react-router-dom";
 
 export interface ITreeStepsError<TError extends object> {
     error: TError | null;
-    // Errors live depends on the times the user has navigated
+    // Errors' live depends on the times the user has navigated
     ttl: number;
 }
 export interface TreeNodeComponentProps<T extends object, TError extends object = {}> {
@@ -15,6 +15,8 @@ export interface TreeNodeComponentProps<T extends object, TError extends object 
     previousNode: ITreeContext<TError, T>['previousNode'];
 
     data: ITreeContext<TError, T>['data'];
+
+    previousData: ITreeContext<TError, T>['previousData'];
 
     commit: ITreeContext<TError, T>['commit'];
 
@@ -99,6 +101,8 @@ export interface ITreeContext<TError extends object, T extends object> {
     previousNode(options?: PreviousNodeOptions): null;
 
     data: T;
+
+    previousData: T;
 
     commit(data: React.SetStateAction<T>): void;
 

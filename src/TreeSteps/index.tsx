@@ -172,6 +172,7 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
                 rootNode,
                 previousNode,
                 nextNode,
+                previousData: getDataSafely(dataMap, currentNode && currentNode.parent),
                 data: getDataSafely(dataMap, currentNode),
                 commit,
                 error: nodeError.error,
