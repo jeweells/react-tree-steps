@@ -23,12 +23,9 @@
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",
-  "dependencies": {
-    "-": "0.0.1",
-    "@types/uuid": "^8.3.0",
-    "D": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/uuid": "^8.3.0",
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^24.9.1",
     "@types/node": "^14.14.12",
