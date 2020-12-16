@@ -92,11 +92,11 @@ export interface TreeStepsProps<TError extends object, T extends object> {
 }
 
 export interface ITreeContext<TError extends object, T extends object> {
-    nextNode(options?: NextNodeOptions): void;
+    nextNode(options?: NextNodeOptions): null;
 
-    rootNode(options?: NodeNavigationOptions): void;
+    rootNode(options?: NodeNavigationOptions): null;
 
-    previousNode(options?: PreviousNodeOptions): void;
+    previousNode(options?: PreviousNodeOptions): null;
 
     data: T;
 

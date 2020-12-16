@@ -82,6 +82,7 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
             ttl: 0,
         });
         goTo(compactRoot, options);
+        return null;
     }, [compactRoot, goTo]);
 
     const nextNode = (options: NextNodeOptions = {}) => {
@@ -110,6 +111,7 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
             });
             goTo(child, options);
         }
+        return null;
     };
     const previousNode = (options: PreviousNodeOptions = {}) => {
         const parent = findPreviousNode(currentNode, options);
@@ -123,6 +125,7 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
         } else {
             rootNode(options);
         }
+        return null;
     };
 
     const popHistoryRef = React.useRef<History.LocationListener<LocationState>>(
