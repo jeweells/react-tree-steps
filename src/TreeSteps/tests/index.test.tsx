@@ -820,3 +820,54 @@ describe("Setting error flow should work correctly", () => {
 
 
 });
+
+
+describe("Previous data should work correctly", () => {
+    const ids = ["A", "B", "C"];
+
+    const perform = () => {
+        const {texts, cmpIds, root, history} = basicSetup(ids);
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} initialData={idata}/>
+            </Router>,
+        );
+        return {
+            texts, cmpIds, root, history, tree,
+        }
+    };
+
+    it("First time rendering previousData will be the initial data", () => {
+        const {tree} = perform();
+        const text = tree.text();
+        expect(text).toMatch(`PreviousData: ${idata.hallo}`);
+    });
+
+    it("Next node should display the same previous data", () => {
+        const {tree} = perform();
+        tree.find("#next-node").simulate("click");
+        const text = tree.text();
+        expect(text).toMatch(`PreviousData: ${idata.hallo}`);
+    });
+
+    it("Commit -> nextNode -> commit should show current and previous data accordingly", () => {
+        const {tree} = perform();
+        tree.find("#commit").simulate("click");
+        tree.find("#next-node").simulate("click");
+        tree.find("#commit").simulate("click");
+        const text = tree.text();
+        expect(text).toMatch(`PreviousData: ${idata.hallo + 1}`);
+        expect(text).toMatch(`Data: ${idata.hallo + 2}`);
+    });
+
+    it("Commit -> nextNode -> commit -> previousNode should show current and previous data accordingly", () => {
+        const {tree} = perform();
+        tree.find("#commit").simulate("click");
+        tree.find("#next-node").simulate("click");
+        tree.find("#commit").simulate("click");
+        const text = tree.text();
+        expect(text).toMatch(`PreviousData: ${idata.hallo + 1}`);
+        expect(text).toMatch(`Data: ${idata.hallo + 1}`);
+    });
+
+});

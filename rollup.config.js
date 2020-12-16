@@ -32,7 +32,11 @@ export default {
             rollupCommonJSResolveHack: true,
             exclude: ["**/__tests__/**", "**/tests/**"],
             clean: true,
-
+            tsconfigOverride: {
+                compilerOptions: {
+                    noEmit: false,
+                }
+            }
         }),
         commonjs(),
         terser({

@@ -25,7 +25,7 @@ export const cmp = (
     r.renders += 1;
     return (
         <div id="noderoot">
-            {txt}, Renders: {r.renders}, Count: {count}, Data: {props.data.hallo}, Errors: {props.error}
+            {txt}, Renders: {r.renders}, Count: {count}, Data: {props.data.hallo}, Errors: {props.error}, PreviousData: {props.previousData.hallo}
             <br/>
             <button id={"decrement"} onClick={() => setCount((p) => p - 1)}>Decrement</button>
             <button id={"increment"} onClick={() => setCount((p) => p + 1)}>Increment</button>
