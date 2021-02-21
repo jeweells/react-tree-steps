@@ -1,5 +1,7 @@
-import React from "react";
+import {ClassValue} from "classnames/types";
+import React, {CSSProperties} from "react";
 import {RouteProps} from "react-router-dom";
+import {TransitionStates, TransitionProps} from "../Transition";
 
 export interface ITreeStepsError<TError extends object> {
     error: TError | null;
@@ -87,10 +89,28 @@ export interface TreeNodeProps<TError extends object, T extends object> {
     node: CompactTreeNodeInfo<TError, T>;
 }
 
+export type TransitionStyles = Partial<{
+    inStyles: CSSProperties;
+    // This will be passed to classNames method from classnames module
+    inClassNames: ClassValue[];
+
+
+    styles: CSSProperties;
+    classNames: ClassValue[];
+
+
+    outStyles: CSSProperties;
+    // This will be passed to classNames method from classnames module
+    outClassNames: ClassValue[];
+}>;
+
 export interface TreeStepsProps<TError extends object, T extends object> {
     root: TreeNodeInfo<TError, T>;
     initialData: T;
     statePrefix?: string;
+
+    transitionProps?: Omit<Partial<TransitionProps>, "id">;
+    transitionStyles?(goingBackwards: boolean, state: TransitionStates): TransitionStyles;
 }
 
 export interface ITreeContext<TError extends object, T extends object> {

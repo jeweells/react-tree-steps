@@ -23,16 +23,27 @@
   "main": "index.js",
   "module": "index.es.js",
   "jsnext:main": "index.es.js",
-  "dependencies": {},
+  "dependencies": {
+    "@types/classnames": "^2.2.11",
+    "@types/react-transition-group": "^4.4.1",
+    "classnames": "^2.2.6",
+    "react-transition-group": "^4.4.1"
+  },
   "devDependencies": {
-    "@types/uuid": "^8.3.0",
+    "@babel/core": "^7.12.16",
+    "@storybook/addon-actions": "^6.1.17",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/react": "^6.1.17",
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^24.9.1",
     "@types/node": "^14.14.12",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.6",
+    "@types/uuid": "^8.3.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.3.2",
+    "babel-loader": "^8.2.2",
     "enzyme": "^3.11.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -59,7 +70,9 @@
   "scripts": {
     "build": "rollup -c",
     "test": "react-scripts test",
-    "deploy": "rollup -c && npm publish build"
+    "deploy": "rollup -c && npm publish build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": [

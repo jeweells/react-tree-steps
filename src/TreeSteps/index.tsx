@@ -1,8 +1,18 @@
+import classNames from "classnames";
 import {History, LocationState} from "history";
 import React from "react";
 import {TreeContext} from "./context";
-import {buildCompactRoot, findFirstValidNode, findNextNode, findNode, findPreviousNode, isNodeAllowed} from "./core";
+import {
+    buildCompactRoot,
+    findFirstValidNode,
+    findNextNode,
+    findNode,
+    findPreviousNode,
+    hasReferenceBackwards,
+    isNodeAllowed,
+} from "./core";
 import {useChangingHistory} from "./core/hooks";
+import {Transition} from "./Transition";
 import {TreeNode} from "./TreeNode";
 import {
     CompactTreeNodeInfo,
@@ -12,11 +22,15 @@ import {
     PreviousNodeOptions,
     TreeStepsProps,
 } from "./types";
+import {safeStyles} from "./utils";
+
 
 export const TreeSteps = <T extends object = {}, TError extends object = {}>({
     root,
     initialData,
     statePrefix = "node:",
+    transitionStyles,
+    transitionProps = {},
 }: React.PropsWithChildren<TreeStepsProps<TError, T>>) => {
     const history = useChangingHistory();
     const [nodeError, setNodeError] = React.useState<ITreeStepsError<TError>>({
@@ -30,7 +44,7 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
     const getDataSafely = React.useCallback((map: typeof dataMap, node: CompactTreeNodeInfo<TError, T> | undefined) => {
         return (node ? map[node.id] : null) || initialData;
     }, [initialData]);
-
+    const [previousNodeCmp, setPreviousNodeCmp] = React.useState<CompactTreeNodeInfo<TError, T> | null>(null);
     const [currentNode, setCurrentNode] = React.useState(() => {
         const _node = findFirstValidNode(compactRoot, history) || compactRoot;
         // Leave a mark that this node was visitted
@@ -69,6 +83,7 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
                     });
                 }
                 currentNodeValidRef.current = node;
+                setPreviousNodeCmp(currentNode);
                 setCurrentNode(node);
             }
         },
@@ -98,7 +113,7 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
                 let tmpChild = child as typeof child | undefined;
                 // This has no overhead at all O(n) in the worst case and that case, which is not bad, will rarely happen
                 // since it's more common to go to the next child ( the loop will break after the first iteration )
-                while(tmpChild && tmpChild !== currentNode) {
+                while (tmpChild && tmpChild !== currentNode) {
                     dat[tmpChild.id] = currData;
                     tmpChild = tmpChild.parent;
                 }
@@ -142,6 +157,7 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
                     );
                     if (targetNode && currentNode !== targetNode) {
                         currentNodeValidRef.current = targetNode;
+                        setPreviousNodeCmp(currentNode);
                         setCurrentNode(targetNode);
                     }
                 }
@@ -165,6 +181,18 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
         }
     }, [history, currentNode, rootNode]);
 
+    const [delayedCurrentNode, setDelayedCurrentNode] = React.useState(currentNode);
+
+    React.useLayoutEffect(() => {
+        if (!delayedCurrentNode) {
+            setDelayedCurrentNode(currentNode);
+        }
+    }, [currentNode]);
+    const [goingBackwards, setGoingBackwards] = React.useState(false);
+
+    React.useLayoutEffect(() => {
+        setGoingBackwards(hasReferenceBackwards(delayedCurrentNode, currentNode));
+    }, [currentNode]);
 
     return (
         <TreeContext.Provider
@@ -181,10 +209,55 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
                         error: error instanceof Function ? error(prev.error) : error,
                         ttl,
                     }));
-                }
+                },
             }}
         >
-            <TreeNode node={currentNode}/>
+            <Transition
+                timeout={0}
+                {...transitionProps}
+                id={currentNode.id}
+                style={{
+                    position: "relative",
+                    ...transitionProps?.style,
+                }}
+                onExited={() => {
+                    setDelayedCurrentNode(currentNode);
+                    if(transitionProps?.onExited){
+                        transitionProps.onExited();
+                    }
+                }}
+            >
+                {state => {
+                    const styles = React.useMemo(() => safeStyles(transitionStyles && transitionStyles(goingBackwards, state)),
+                        [state, goingBackwards]);
+                    return (
+                        <React.Fragment>
+                            <div
+                                className={classNames(...styles.classNames, ...(state.exited ? [] : styles.outClassNames))}
+                                style={{
+                                    zIndex: 2,
+                                    width: "100%",
+                                    height: "100%",
+                                    ...styles.styles,
+                                    ...(state.exited ? {} : styles.outStyles),
+                                }}>
+                                {<TreeNode node={delayedCurrentNode}/>}
+                            </div>
+                            {!state.exited && <div
+                                className={classNames(...styles.inClassNames)}
+                                style={{
+                                    position: "absolute", top: 0, left: 0,
+                                    zIndex: 1,
+                                    width: "100%",
+                                    height: "100%",
+                                    ...styles.styles,
+                                    ...styles.inStyles,
+                                }}>
+                                <TreeNode node={currentNode}/>
+                            </div>}
+                        </React.Fragment>)
+                }}
+            </Transition>
         </TreeContext.Provider>
     );
 };

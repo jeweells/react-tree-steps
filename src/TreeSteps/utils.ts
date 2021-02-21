@@ -1,4 +1,4 @@
-import {TreeNodeInfo} from "./types";
+import {TransitionStyles, TreeNodeInfo} from "./types";
 
 
 export const tunnelNode = <T extends object, TError extends object = {}>(
@@ -25,5 +25,15 @@ export const node = <T extends object, TError extends object = {}>(
         },
         children,
         options,
+    }
+};
+export const safeStyles = (styles: TransitionStyles = {}): Required<TransitionStyles> => {
+    return {
+        inStyles: styles.inStyles || {},
+        outStyles: styles.outStyles || {},
+        styles: styles.styles || {},
+        classNames: styles.classNames || [],
+        inClassNames: styles.inClassNames || [],
+        outClassNames: styles.outClassNames || [],
     }
 };

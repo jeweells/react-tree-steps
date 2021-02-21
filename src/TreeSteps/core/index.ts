@@ -204,3 +204,16 @@ export const _findPreviousNode = <T extends object, TError extends object>(
     }
     return null;
 };
+
+export const hasReferenceBackwards = <T extends object, TError extends object>(
+    _from: CompactTreeNodeInfo<TError, T> | null,
+    target: CompactTreeNodeInfo<TError, T> | null,
+    ): boolean => {
+    while(_from) {
+        if(_from === target) {
+            return true;
+        }
+        _from = _from.parent || null;
+    }
+    return false;
+}

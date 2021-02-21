@@ -1,0 +1,82 @@
+
+.node-a-rl {
+    animation: inFromRight 0.5s both;
+}
+
+.node-b-rl {
+    animation: outLeft 0.5s both;
+}
+
+.node-a-lr {
+    animation: inFromLeft 0.5s both;
+}
+
+.node-b-lr {
+    animation: outRight 0.5s both;
+}
+
+.node-a-fade {
+    animation: fadeIn 0.5s both;
+}
+
+.node-b-fade {
+    animation: fadeOut 0.5s both;
+}
+
+@keyframes outLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes outRight {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+@keyframes inFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes inFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
