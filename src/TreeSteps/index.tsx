@@ -13,7 +13,6 @@ import {
     isNodeAllowed,
 } from "./core";
 import {useChangingHistory} from "./core/hooks";
-import "./styles.css";
 import {TreeNode} from "./TreeNode";
 import {
     CompactTreeNodeInfo,
@@ -218,28 +217,39 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
                 },
             }}
         >
-            {!!transitionTimeout? (
-
-                <TransitionGroup
-                    {...transitionProps}
-                    className={classNames("tree-steps-node-wrapper", transitionProps?.className)}
-                >
-                    <CSSTransition
-                        key={delayedCurrentNode.id}
-                        timeout={transitionTimeout}
-                        classNames={transitionStyles?.(gb)}
+            {!!transitionTimeout ? (
+                <React.Fragment>
+                    <style dangerouslySetInnerHTML={{
+                        __html: `
+                        .tree-steps-node-wrapper {
+                            position: relative;
+                        }
+                        .tree-steps-node-wrapper > *:not(:first-child) {
+                            position: absolute !important;
+                        }                        
+                        `,
+                    }} />
+                    <TransitionGroup
+                        {...transitionProps}
+                        className={classNames("tree-steps-node-wrapper", transitionProps?.className)}
                     >
-                        <div
-                            style={{
-                                top: 0, left: 0,
-                                zIndex: 1,
-                                width: "100%",
-                                height: "100%",
-                            }}>
-                            <TreeNode node={delayedCurrentNode}/>
-                        </div>
-                    </CSSTransition>
-                </TransitionGroup>
+                        <CSSTransition
+                            key={delayedCurrentNode.id}
+                            timeout={transitionTimeout}
+                            classNames={transitionStyles?.(gb)}
+                        >
+                            <div
+                                style={{
+                                    top: 0, left: 0,
+                                    zIndex: 1,
+                                    width: "100%",
+                                    height: "100%",
+                                }}>
+                                <TreeNode node={delayedCurrentNode}/>
+                            </div>
+                        </CSSTransition>
+                    </TransitionGroup>
+                </React.Fragment>
             ) : (
                 <TreeNode node={delayedCurrentNode}/>
             )}

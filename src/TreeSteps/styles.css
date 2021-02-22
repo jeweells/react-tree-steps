@@ -1,6 +1,0 @@
-.tree-steps-node-wrapper {
-    position: relative;
-}
-.tree-steps-node-wrapper > *:not(:first-child) {
-    position: absolute !important;
-}
