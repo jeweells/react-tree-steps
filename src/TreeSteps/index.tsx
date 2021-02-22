@@ -218,26 +218,31 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
                 },
             }}
         >
-            <TransitionGroup
-                {...transitionProps}
-                className={classNames("tree-steps-node-wrapper", transitionProps?.className)}
-            >
-                <CSSTransition
-                    key={delayedCurrentNode.id}
-                    timeout={transitionTimeout}
-                    classNames={transitionStyles?.(gb)}
+            {!!transitionTimeout? (
+
+                <TransitionGroup
+                    {...transitionProps}
+                    className={classNames("tree-steps-node-wrapper", transitionProps?.className)}
                 >
-                    <div
-                        style={{
-                            top: 0, left: 0,
-                            zIndex: 1,
-                            width: "100%",
-                            height: "100%",
-                        }}>
-                        <TreeNode node={delayedCurrentNode}/>
-                    </div>
-                </CSSTransition>
-            </TransitionGroup>
+                    <CSSTransition
+                        key={delayedCurrentNode.id}
+                        timeout={transitionTimeout}
+                        classNames={transitionStyles?.(gb)}
+                    >
+                        <div
+                            style={{
+                                top: 0, left: 0,
+                                zIndex: 1,
+                                width: "100%",
+                                height: "100%",u
+                            }}>
+                            <TreeNode node={delayedCurrentNode}/>
+                        </div>
+                    </CSSTransition>
+                </TransitionGroup>
+            ) : (
+                <TreeNode node={delayedCurrentNode}/>
+            )}
         </TreeContext.Provider>
     );
 };
