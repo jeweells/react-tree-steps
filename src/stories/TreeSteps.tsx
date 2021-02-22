@@ -71,22 +71,12 @@ export const Root: React.VFC = () =>
         <TreeSteps<typeof idata, MyError>
             root={root}
             initialData={idata}
-            transitionProps={{
-                timeout: {
-                    exit: 500,
-                },
-                ignoreOnMounted: true,
-            }}
-            transitionStyles={(gb, state) => {
-
+            transitionStyles={(gb) => {
                 return {
-                    outClassNames: [{
-                        ["node-b-fade"]: state.afterEnter,
-                    }],
-                    inClassNames: [{
-                        ["node-a-fade"]: state.afterEnter,
-                    }]
-                }
+                    enter: gb ? "node-a-fade" : "node-a-fade",
+                    exit: gb ? "node-b-fade" : "node-b-fade",
+                };
             }}
+            transitionTimeout={1500}
         />
     </Router>;

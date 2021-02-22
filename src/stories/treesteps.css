@@ -16,12 +16,13 @@
 }
 
 .node-a-fade {
-    animation: fadeIn 0.5s both;
+    animation: fadeIn 1.5s both;
 }
 
 .node-b-fade {
-    animation: fadeOut 0.5s both;
+    animation: fadeOut 1.5s both;
 }
+
 
 @keyframes outLeft {
     0% {

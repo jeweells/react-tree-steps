@@ -1,13 +1,13 @@
-import {ClassValue} from "classnames/types";
-import React, {CSSProperties} from "react";
+import React from "react";
 import {RouteProps} from "react-router-dom";
-import {TransitionStates, TransitionProps} from "../Transition";
+import {CSSTransitionClassNames} from "react-transition-group/CSSTransition";
 
 export interface ITreeStepsError<TError extends object> {
     error: TError | null;
     // Errors' live depends on the times the user has navigated
     ttl: number;
 }
+
 export interface TreeNodeComponentProps<T extends object, TError extends object = {}> {
 
     nextNode: ITreeContext<TError, T>['nextNode'];
@@ -89,28 +89,15 @@ export interface TreeNodeProps<TError extends object, T extends object> {
     node: CompactTreeNodeInfo<TError, T>;
 }
 
-export type TransitionStyles = Partial<{
-    inStyles: CSSProperties;
-    // This will be passed to classNames method from classnames module
-    inClassNames: ClassValue[];
-
-
-    styles: CSSProperties;
-    classNames: ClassValue[];
-
-
-    outStyles: CSSProperties;
-    // This will be passed to classNames method from classnames module
-    outClassNames: ClassValue[];
-}>;
 
 export interface TreeStepsProps<TError extends object, T extends object> {
     root: TreeNodeInfo<TError, T>;
     initialData: T;
     statePrefix?: string;
 
-    transitionProps?: Omit<Partial<TransitionProps>, "id">;
-    transitionStyles?(goingBackwards: boolean, state: TransitionStates): TransitionStyles;
+    transitionTimeout?: number | { appear?: number; enter?: number; exit?: number };
+    transitionProps?: React.HTMLAttributes<HTMLDivElement>;
+    transitionStyles?(goingBackwards: boolean):  string | CSSTransitionClassNames;
 }
 
 export interface ITreeContext<TError extends object, T extends object> {
