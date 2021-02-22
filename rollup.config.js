@@ -6,6 +6,8 @@ import {terser} from 'rollup-plugin-terser';
 import copy from 'rollup-plugin-copy'
 import path from "path";
 import tscfg from "./tsconfig.json";
+import sass from 'rollup-plugin-sass';
+
 
 export default {
     input: "src/index.ts",
@@ -26,6 +28,7 @@ export default {
         }
     ],
     plugins: [
+        sass(),
         external(),
         resolve(),
         typescript({
