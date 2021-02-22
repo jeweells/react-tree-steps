@@ -234,7 +234,7 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
                                 top: 0, left: 0,
                                 zIndex: 1,
                                 width: "100%",
-                                height: "100%",u
+                                height: "100%",
                             }}>
                             <TreeNode node={delayedCurrentNode}/>
                         </div>
