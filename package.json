@@ -1,6 +1,6 @@
 {
   "name": "react-tree-steps",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "jeweells",
   "license": "MIT",
   "description": "Tree structure that allows passing data between steps while maintaining the url updated",
