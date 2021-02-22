@@ -219,35 +219,27 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
         >
             {!!transitionTimeout ? (
                 <React.Fragment>
-                    <style dangerouslySetInnerHTML={{
-                        __html: `
-                        .tree-steps-node-wrapper {
-                            position: relative;
-                        }
-                        .tree-steps-node-wrapper > *:not(:first-child) {
-                            position: absolute !important;
-                        }                        
-                        `,
-                    }} />
                     <TransitionGroup
+                        style={{ position: "relative" }}
                         {...transitionProps}
-                        className={classNames("tree-steps-node-wrapper", transitionProps?.className)}
+                        className={classNames(transitionProps?.className)}
                     >
                         <CSSTransition
                             key={delayedCurrentNode.id}
                             timeout={transitionTimeout}
                             classNames={transitionStyles?.(gb)}
-                        >
-                            <div
-                                style={{
-                                    top: 0, left: 0,
-                                    zIndex: 1,
-                                    width: "100%",
-                                    height: "100%",
-                                }}>
-                                <TreeNode node={delayedCurrentNode}/>
-                            </div>
-                        </CSSTransition>
+                            children={state => (
+                                <div
+                                    style={{
+                                        position: ["exited", "exiting"].includes(state) ? "absolute" : "unset",
+                                        top: 0, left: 0,
+                                        zIndex: 1,
+                                        width: "100%",
+                                        height: "100%",
+                                    }}>
+                                    <TreeNode node={delayedCurrentNode}/>
+                                </div>
+                            )}/>
                     </TransitionGroup>
                 </React.Fragment>
             ) : (
