@@ -1,3 +1,4 @@
+import {History, LocationState} from "history";
 import React from "react";
 import {RouteProps} from "react-router-dom";
 import {CSSTransitionClassNames} from "react-transition-group/CSSTransition";
@@ -94,6 +95,14 @@ export interface TreeStepsProps<TError extends object, T extends object> {
     root: TreeNodeInfo<TError, T>;
     initialData: T;
     statePrefix?: string;
+
+    basePath?: string;
+
+    // When a node is no longer allowed in the current location (Return true if handled)
+    onFallback?(
+        node: CompactTreeNodeInfo<TError, T>,
+        history: History<LocationState>
+    ): boolean;
 
     transitionTimeout?: number | { appear?: number; enter?: number; exit?: number };
     transitionProps?: React.HTMLAttributes<HTMLDivElement>;

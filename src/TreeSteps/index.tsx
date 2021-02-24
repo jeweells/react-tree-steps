@@ -31,6 +31,7 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
     transitionStyles,
     transitionTimeout = 0,
     transitionProps = {},
+    onFallback,
 }: React.PropsWithChildren<TreeStepsProps<TError, T>>) => {
     const history = useChangingHistory();
     const [nodeError, setNodeError] = React.useState<ITreeStepsError<TError>>({
@@ -174,9 +175,11 @@ export const TreeSteps = <T extends object = {}, TError extends object = {}>({
     React.useEffect(() => {
         if (currentNodeValidRef.current === currentNode) {
             if (!isNodeAllowed(currentNode, history)) {
-                rootNode({
-                    useReplace: true,
-                });
+                if(!(onFallback?.(currentNode, history) ?? false)) {
+                    rootNode({
+                        useReplace: true,
+                    });
+                }
             }
         }
     }, [history, currentNode, rootNode]);

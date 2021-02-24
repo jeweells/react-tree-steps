@@ -2,6 +2,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import {configure, mount, render} from "enzyme";
 import {createMemoryHistory} from "history";
 import * as React from "react";
+import {act} from "react-dom/test-utils";
 import {Router} from "react-router-dom";
 import {TreeSteps} from "../index";
 import {NextNodeOptions, PreviousNodeOptions, TreeNodeInfo} from "../types";
@@ -868,6 +869,63 @@ describe("Previous data should work correctly", () => {
         const text = tree.text();
         expect(text).toMatch(`PreviousData: ${idata.hallo + 1}`);
         expect(text).toMatch(`Data: ${idata.hallo + 1}`);
+    });
+
+});
+
+
+describe("Should call fallback when the url doesn't match any component's url", () => {
+    const ids = ["A", "B", "C"];
+
+    const perform = (fallback= jest.fn().mockReturnValue(false)) => {
+        const {texts, cmpIds, root, history} = basicSetup(ids);
+
+        // @ts-ignore
+        root.routeProps.exact = true;
+        // @ts-ignore
+        root.children['B'].routeProps.exact = true;
+
+        const tree = mount(
+            <Router history={history}>
+                <TreeSteps root={root} onFallback={fallback} initialData={idata}/>
+            </Router>,
+        );
+        return {
+            texts, cmpIds, root, history, tree, fallback
+        }
+    };
+
+
+    it("Accessing a node by pushing history should fallback if invalid", () => {
+        const {tree, texts, cmpIds, history, fallback} = perform();
+        const text = tree.text();
+        expect(text).toMatch(texts[cmpIds[0]]);
+        act(() => {
+            history.push("/paosjdopasd/asdasdjasf");
+        });
+        expect(fallback).toBeCalledTimes(1);
+        expect(text).toMatch(texts[cmpIds[0]]);
+        act(() => {
+            history.push("/");
+        });
+        expect(fallback).toBeCalledTimes(1);
+        expect(text).toMatch(texts[cmpIds[0]]);
+    });
+
+
+    it("Fallback that returns false should work as if no callback was provided", () => {
+        const {tree, texts, cmpIds, history, fallback} = perform(jest.fn().mockReturnValue(false));
+        const text = tree.text();
+        expect(text).toMatch(texts[cmpIds[0]]);
+        expect(fallback).toBeCalledTimes(0);
+        tree.find("#next-node").simulate('click');
+        expect(fallback).toBeCalledTimes(0);
+        expect(tree.text()).toMatch(texts[cmpIds[1]]);
+        act(() => {
+            history.push("/zzasdasdasg/asfasdfs");
+        });
+        expect(fallback).toBeCalledTimes(1);
+        expect(history.location.pathname).toBe("/");
     });
 
 });
